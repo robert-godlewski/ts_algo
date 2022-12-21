@@ -6,6 +6,8 @@ Compile via root directory with: tsc
 /src has all of the TypeScript files.
 /dist has all of the executable JavaScript files.
 
+********Also need to add to Github*********
+
 # Am currently doing:
 ...
 

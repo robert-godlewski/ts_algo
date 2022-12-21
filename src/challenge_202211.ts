@@ -30,5 +30,27 @@ function maximumWealth(accounts: number[][]): number {
     return maxnum;
 };
 
+// Solved in 10 min
+// O(n) time solution
+// O(n) space solution
+function fizzBuzz(n: number): string[] {
+    var phrase: string[] = [];
+    for (var i = 1; i <= n; i++) {
+        var word = "";
+        if (i % 3 == 0) {
+            word += "Fizz";
+        };
+        if (i % 5 == 0) {
+            word += "Buzz";
+        };
+        if (word === "") {
+            phrase.push(i.toString());
+        } else {
+            phrase.push(word);
+        };
+    };
+    return phrase;
+};
 
-export {runningSum, maximumWealth};
+
+export {runningSum, maximumWealth, fizzBuzz};

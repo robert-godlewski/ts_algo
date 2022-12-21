@@ -1,5 +1,5 @@
 // Using code solutions
-import {runningSum, maximumWealth} from './challenge_202211';
+import {runningSum, maximumWealth, fizzBuzz} from './challenge_202211';
 
 
 // Line functions needed to separate code in console.
@@ -41,4 +41,17 @@ function maxWealthTest(accounts: number[][]): void {
 maxWealthTest([[1,2,3],[3,2,1]]);
 maxWealthTest([[1,5],[7,3],[3,5]]);
 maxWealthTest([[2,8,7],[7,1,3],[1,9,5]]);
+thinLine();
+
+// Testomg fizzBuzz
+function fizzBuzzTest(n: number): void {
+    console.log('The number = ' + n);
+    var arr = fizzBuzz(n);
+    console.log('The phrase is');
+    console.log(arr);
+};
+
+fizzBuzzTest(3);
+fizzBuzzTest(5);
+fizzBuzzTest(15);
 thinLine();
