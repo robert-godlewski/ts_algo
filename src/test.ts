@@ -1,5 +1,5 @@
 // Using code solutions
-import {runningSum, maximumWealth, fizzBuzz} from './challenge_202211';
+import {runningSum, maximumWealth, fizzBuzz, numberOfSteps} from './challenge_202211';
 
 
 // Line functions needed to separate code in console.
@@ -43,7 +43,7 @@ maxWealthTest([[1,5],[7,3],[3,5]]);
 maxWealthTest([[2,8,7],[7,1,3],[1,9,5]]);
 thinLine();
 
-// Testomg fizzBuzz
+// Testing fizzBuzz
 function fizzBuzzTest(n: number): void {
     console.log('The number = ' + n);
     var arr = fizzBuzz(n);
@@ -54,4 +54,16 @@ function fizzBuzzTest(n: number): void {
 fizzBuzzTest(3);
 fizzBuzzTest(5);
 fizzBuzzTest(15);
+thinLine();
+
+// Testing numberOfSteps
+function stepTest(num: number): void {
+    console.log('Number of steps for ' + num + ' =');
+    var steps = numberOfSteps(num);
+    console.log(steps);
+};
+
+stepTest(14);
+stepTest(8);
+stepTest(123);
 thinLine();

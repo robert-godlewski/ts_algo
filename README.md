@@ -4,7 +4,7 @@ All of these algorithms are my solutions to LeetCode Problems in TypeScript
 Compile via root directory with: tsc
 
 /src has all of the TypeScript files.
-/dist has all of the executable JavaScript files.
+/dist has all of the executable JavaScript files. (This is created automatically)
 
 ********Also need to add to Github*********
 

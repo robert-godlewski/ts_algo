@@ -1,4 +1,4 @@
-// Solutions in November 2022
+// Solutions in November 2022 and December 2022
 
 // For Running Sum of 1d Array
 // Solved in 5 min
@@ -10,7 +10,6 @@ function runningSum(nums: number[]): number[] {
     };
     return nums;
 };
-
 
 // For Richest Customer Wealth
 // Solved in 5 min
@@ -35,8 +34,8 @@ function maximumWealth(accounts: number[][]): number {
 // O(n) space solution
 function fizzBuzz(n: number): string[] {
     var phrase: string[] = [];
-    for (var i = 1; i <= n; i++) {
-        var word = "";
+    for (var i: number = 1; i <= n; i++) {
+        var word: string = "";
         if (i % 3 == 0) {
             word += "Fizz";
         };
@@ -52,5 +51,22 @@ function fizzBuzz(n: number): string[] {
     return phrase;
 };
 
+// Solved in 15 min
+// O(1) time solution
+// O(n) space solution
+function numberOfSteps(num: number, steps=0): number {
+    //console.log('num = ' + num);
+    //console.log('steps = ' + steps);
+    if (num != 0) {
+        if (num % 2 == 0) {
+            num /= 2;
+        } else {
+            num--;
+        }
+        steps = numberOfSteps(num, steps+1);
+    };
+    return steps;
+};
 
-export {runningSum, maximumWealth, fizzBuzz};
+
+export {runningSum, maximumWealth, fizzBuzz, numberOfSteps};
