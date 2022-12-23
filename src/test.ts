@@ -4,7 +4,8 @@ import {
     maximumWealth, 
     fizzBuzz, 
     numberOfSteps, 
-    middleNode
+    middleNode,
+    canConstruct
 } from './challenge_202211';
 
 
@@ -100,4 +101,16 @@ middleNodeTest(n1);
 var n6: ListNode = new ListNode(6);
 n5.next = n6;
 middleNodeTest(n1);
+thinLine();
+
+// Testing canConstruct
+function constructTest(ransomNote: string, magazine: string): void {
+    console.log('Can you find ' + ransomNote + ' in ' + magazine + '?');
+    var construct = canConstruct(ransomNote, magazine);
+    console.log(construct);
+};
+
+constructTest('a', 'b');
+constructTest('aa', 'ab');
+constructTest('aa', 'aab');
 thinLine();

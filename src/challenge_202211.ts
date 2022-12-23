@@ -96,6 +96,7 @@ function numberOfSteps(num: number, steps=0): number {
 //     };
 //     return cur;
 // };
+
 // Faster way
 // Best Time = O(1)
 // Normal Time = O(n)
@@ -113,5 +114,43 @@ function middleNode(head: ListNode | null): ListNode | null {
     return nodeList[Math.trunc(nodeList.length/2)];
 };
 
+// Solved in 30 min
+// Best time = O(1)
+// Normal time = O(n)
+// Best space = O(1)
+// Normal space = O(n)
+function canConstruct(ransomNote: string, magazine: string): boolean {
+    if (ransomNote === magazine) {
+        return true;
+    } else if (ransomNote.length > magazine.length && ransomNote != magazine) {
+        return false;
+    } else if (ransomNote.length == magazine.length && ransomNote.length == 1 && ransomNote != magazine) {
+        return false;
+    };
+    var mag_arr: string[] = magazine.split("");
+    var mag_dict: any = {};
+    for (var i: number = 0; i < mag_arr.length; i++) {
+        var key: string = mag_arr[i];
+        if (key in mag_dict) {
+            mag_dict[key] += 1;
+        } else {
+            mag_dict[key] = 1;
+        };
+    };
+    var ran_arr: string[] = ransomNote.split("");
+    for (var i: number = 0; i < ran_arr.length; i++) {
+        var key: string = ran_arr[i];
+        if (key in mag_dict) {
+            if (mag_dict[key] == 0) {
+                return false;
+            };
+            mag_dict[key] -= 1;
+        } else {
+            return false;
+        };
+    };
+    return true;
+};
 
-export {runningSum, maximumWealth, fizzBuzz, numberOfSteps, middleNode};
+
+export {runningSum, maximumWealth, fizzBuzz, numberOfSteps, middleNode, canConstruct};
