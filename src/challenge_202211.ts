@@ -1,4 +1,6 @@
 // Solutions in November 2022 and December 2022
+import {ListNode} from "./ListNode";
+
 
 // For Running Sum of 1d Array
 // Solved in 5 min
@@ -68,5 +70,48 @@ function numberOfSteps(num: number, steps=0): number {
     return steps;
 };
 
+// Solved in 20 min
+// Best Time = O(1)
+// Normal Time = O(n) time
+// O(1) space
+// Brute Force Way
+// function middleNode(head: ListNode | null): ListNode | null {
+//     if (!head) {
+//         return null;
+//     }
+//     var len: number = 0;
+//     var cur: ListNode | null = head;
+//     while (cur) {
+//         len++;
+//         cur = cur.next;
+//     };
+//     cur = head;
+//     var i: number = 1;
+//     while (cur && i < len/2) {
+//         cur = cur.next;
+//         i++;
+//     };
+//     if (len % 2 == 0 && cur) {
+//         cur = cur.next;
+//     };
+//     return cur;
+// };
+// Faster way
+// Best Time = O(1)
+// Normal Time = O(n)
+// O(n) Space
+function middleNode(head: ListNode | null): ListNode | null {
+    if (!head) {
+        return null;
+    };
+    var nodeList: ListNode[] = [];
+    var cur: ListNode | null = head;
+    while (cur) {
+        nodeList.push(cur);
+        cur = cur.next;
+    };
+    return nodeList[Math.trunc(nodeList.length/2)];
+};
 
-export {runningSum, maximumWealth, fizzBuzz, numberOfSteps};
+
+export {runningSum, maximumWealth, fizzBuzz, numberOfSteps, middleNode};

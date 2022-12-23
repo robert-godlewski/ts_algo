@@ -1,5 +1,15 @@
 // Using code solutions
-import {runningSum, maximumWealth, fizzBuzz, numberOfSteps} from './challenge_202211';
+import {
+    runningSum, 
+    maximumWealth, 
+    fizzBuzz, 
+    numberOfSteps, 
+    middleNode
+} from './challenge_202211';
+
+
+// Tools needed to run these tests
+import {ListNode, printLL} from './ListNode';
 
 
 // Line functions needed to separate code in console.
@@ -66,4 +76,28 @@ function stepTest(num: number): void {
 stepTest(14);
 stepTest(8);
 stepTest(123);
+thinLine();
+
+// Testing middleNode
+function middleNodeTest(head: ListNode | null): void {
+    console.log('Finding the middle node in:');
+    printLL(head);
+    console.log('is');
+    var middle = middleNode(head);
+    if (middle) {
+        console.log(middle.val);
+    } else {
+        console.log('null');
+    };
+};
+
+var n5: ListNode = new ListNode(5);
+var n4: ListNode = new ListNode(4, n5);
+var n3: ListNode = new ListNode(3, n4);
+var n2: ListNode = new ListNode(2, n3);
+var n1: ListNode = new ListNode(1, n2);
+middleNodeTest(n1);
+var n6: ListNode = new ListNode(6);
+n5.next = n6;
+middleNodeTest(n1);
 thinLine();
