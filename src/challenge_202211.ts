@@ -1,5 +1,5 @@
 // Solutions in November 2022 and December 2022
-import {ListNode} from "./ListNode";
+import {ListNode} from "./LinkedListTools";
 
 
 // For Running Sum of 1d Array

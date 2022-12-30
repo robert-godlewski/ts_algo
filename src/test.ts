@@ -10,7 +10,7 @@ import {
 
 
 // Tools needed to run these tests
-import {ListNode, printLL} from './ListNode';
+import {ListNode, LL} from './LinkedListTools';
 
 
 // Line functions needed to separate code in console.
@@ -24,6 +24,8 @@ function thinLine(): void {
 
 
 // Challenge Problems
+thickLine();
+console.log('Challenge Problems:');
 thickLine();
 
 // Testing runningSum
@@ -80,11 +82,9 @@ stepTest(123);
 thinLine();
 
 // Testing middleNode
-function middleNodeTest(head: ListNode | null): void {
-    console.log('Finding the middle node in:');
-    printLL(head);
-    console.log('is');
-    var middle = middleNode(head);
+function middleNodeTest(list: LL): void {
+    console.log('Finding the middle node in ' + list.printLL() + ' is:');
+    var middle = middleNode(list.head);
     if (middle) {
         console.log(middle.val);
     } else {
@@ -92,15 +92,15 @@ function middleNodeTest(head: ListNode | null): void {
     };
 };
 
-var n5: ListNode = new ListNode(5);
-var n4: ListNode = new ListNode(4, n5);
-var n3: ListNode = new ListNode(3, n4);
-var n2: ListNode = new ListNode(2, n3);
-var n1: ListNode = new ListNode(1, n2);
-middleNodeTest(n1);
-var n6: ListNode = new ListNode(6);
-n5.next = n6;
-middleNodeTest(n1);
+var midNL: LL = new LL();
+midNL.addAtTail(1);
+midNL.addAtTail(2);
+midNL.addAtTail(3);
+midNL.addAtTail(4);
+midNL.addAtTail(5);
+middleNodeTest(midNL);
+midNL.addAtTail(6);
+middleNodeTest(midNL);
 thinLine();
 
 // Testing canConstruct
@@ -114,3 +114,14 @@ constructTest('a', 'b');
 constructTest('aa', 'ab');
 constructTest('aa', 'aab');
 thinLine();
+
+
+// Linked List Problems
+thickLine();
+console.log('Linked Lists:');
+thickLine();
+
+// Testing hasCycle
+function cycle1Test(head: ListNode | null): void {
+    console.log('Finding if this list has a cylcle:');
+}
