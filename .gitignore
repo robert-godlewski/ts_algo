@@ -1,2 +1,5 @@
 # Distributed folder full of js files.
 dist/
+
+# Overall unnecessary files.
+.DS_Store
