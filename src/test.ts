@@ -9,7 +9,7 @@ import {
 } from './challenge_202211';
 import {
     reverseString
-} from './recursion1.202302';
+} from './recursion1_202302';
 
 
 // Tools needed to run these tests

@@ -7,7 +7,8 @@ Compile via root directory with: tsc
 /dist has all of the executable JavaScript files. (This is created automatically)
 
 # Am currently doing:
-Recursion
+* Linked Lists
+* Recursion
 
 # Need to do:
 General road map taken from LeetCode
@@ -15,7 +16,6 @@ General road map taken from LeetCode
 
 Data Stuctures:
 * Arrays - Comfortable with, ok to skip for now
-* Linked lists - Need more practice
 * Hash Tables - Need more practice
 * Binary Trees
 * Queues and Stacks
