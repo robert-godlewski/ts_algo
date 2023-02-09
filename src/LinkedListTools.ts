@@ -21,6 +21,18 @@ class LL {
         this.tail = (tail===undefined ? null : tail);
     };
 
+    addAtHead(val: number): void {
+        var node: ListNode = new ListNode(val);
+        if (!this.tail && !this.head) {
+            this.tail = node;
+            this.head = node;
+        } else if (this.head) {
+            this.head.prev = node;
+            node.next = this.head;
+            this.head = node;
+        };
+    };
+
     addAtTail(val: number): void {
         var node: ListNode = new ListNode(val);
         if (!this.tail && !this.head) {

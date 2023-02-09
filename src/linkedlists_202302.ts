@@ -2,8 +2,8 @@
 import { ListNode } from "./LinkedListTools";
 
 
-// Designing a Linked List
-// Solved in
+// Designing a Linked List - still not a good solution
+// Solved in over 30 min
 // O(n) time solution
 class MyLinkedList {
     linkedlist: number[];
@@ -65,4 +65,4 @@ class MyLinkedList {
 };
 
 
-export {};
+export {MyLinkedList};
