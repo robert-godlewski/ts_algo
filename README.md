@@ -7,16 +7,16 @@ Compile via root directory with: tsc
 /dist has all of the executable JavaScript files. (This is created automatically)
 
 # Am currently doing:
-...
+Recursion
 
 # Need to do:
 General road map taken from LeetCode
 ![Road Map by Leetcode in the Beginner's Guide](/images/AlgorithmLeetCodeTopics.png)
 
 Data Stuctures:
-* Arrays
-* Linked lists
-* Hash Tables
+* Arrays - Comfortable with, ok to skip for now
+* Linked lists - Need more practice
+* Hash Tables - Need more practice
 * Binary Trees
 * Queues and Stacks
 * Sets

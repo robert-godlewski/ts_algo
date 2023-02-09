@@ -7,6 +7,9 @@ import {
     middleNode,
     canConstruct
 } from './challenge_202211';
+import {
+    reverseString
+} from './recursion1.202302';
 
 
 // Tools needed to run these tests
@@ -23,7 +26,7 @@ function thinLine(): void {
 };
 
 
-// Challenge Problems
+// ****Challenge Problems****
 thickLine();
 console.log('Challenge Problems:');
 thickLine();
@@ -116,12 +119,27 @@ constructTest('aa', 'aab');
 thinLine();
 
 
-// Linked List Problems
+// **** Recursion 1 Problems ****
+thickLine();
+console.log('Recursion Practice:')
+thickLine();
+
+// Testing reverseString
+function reverseStringTest(s: string[]): void {
+    console.log('Reversing this string array:');
+    console.log(s);
+    reverseString(s);
+};
+
+reverseStringTest(["h","e","l","l","o"]);
+reverseStringTest(["H","a","n","n","a","h"]);
+
+// **** Linked List Problems ****
 thickLine();
 console.log('Linked Lists:');
 thickLine();
 
 // Testing hasCycle
-function cycle1Test(head: ListNode | null): void {
+/*function cycle1Test(head: ListNode | null): void {
     console.log('Finding if this list has a cylcle:');
-}
+};*/
