@@ -8,6 +8,10 @@ import {
     canConstruct
 } from './challenge_202211';
 import {
+    MyLinkedList,
+    hasCycle
+} from './linkedlists_202302';
+import {
     reverseString
 } from './recursion1_202302';
 
@@ -140,6 +144,26 @@ console.log('Linked Lists:');
 thickLine();
 
 // Testing hasCycle
-/*function cycle1Test(head: ListNode | null): void {
-    console.log('Finding if this list has a cylcle:');
-};*/
+// Nodes for the first list
+var cl1n1 = new ListNode(3);
+var cl1n2 = new ListNode(2);
+var cl1n3 = new ListNode(0);
+var cl1n4 = new ListNode(-4);
+cl1n1.next = cl1n2;
+//cl1n2.prev = cl1n1;
+cl1n2.next = cl1n3;
+//cl1n3.prev = cl1n2;
+cl1n3.next = cl1n4;
+//cl1n4.prev = cl1n3;
+cl1n4.next = cl1n2;
+var cycle1Test1 = hasCycle(cl1n1);
+console.log('Checking if list [3,2,0,-4] is a cycled list? ' + cycle1Test1);
+var cl2n1 = new ListNode(1);
+var cl2n2 = new ListNode(2);
+cl2n1.next = cl2n2;
+cl2n2.next = cl2n1;
+var cycle1Test2 = hasCycle(cl2n1);
+console.log('Checking if list [1,2] is a cycled list? ' + cycle1Test2);
+var cl3n = new ListNode(1);
+var cycle1Test3 = hasCycle(cl3n);
+console.log('Checking if list [1] is a cycled list? ' + cycle1Test3);

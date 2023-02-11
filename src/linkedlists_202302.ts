@@ -65,4 +65,26 @@ class MyLinkedList {
 };
 
 
-export {MyLinkedList};
+// Linked list cycle - This is a bad question
+// Solved in 1 hr
+// O(n**2) Time solution
+// O(n) Space solution
+function hasCycle(head: ListNode | null): boolean {
+    var cur: ListNode | null = head;
+    var vals: number[] = [];
+    while (cur) {
+        if (vals.length > 0) {
+            for (var i: number = 0; i < vals.length; i++) {
+                if (vals[i] == cur.val) {
+                    return true;
+                };
+            };
+        };
+        vals.push(cur.val);
+        cur = cur.next;
+    };
+    return false;
+};
+
+
+export {MyLinkedList, hasCycle};
