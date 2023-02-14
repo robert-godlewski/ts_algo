@@ -87,4 +87,27 @@ function hasCycle(head: ListNode | null): boolean {
 };
 
 
-export {MyLinkedList, hasCycle};
+// Reversed Linked List - This is the correct solution
+// Solved in 1 hr
+// O(n) time solution, O(1) time solution as a best case
+// O(1) space solution
+function reverseList(head: ListNode | null): ListNode | null {
+    if (head && head.next) {
+        // Utilize 3 pointers
+        var cur: ListNode | null = head;
+        var prev: ListNode | null = null;
+        var next: ListNode | null = null;
+        while (cur) {
+            next = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = next;
+        };
+        return prev;
+    } else {
+        return head;
+    };
+};
+
+
+export {MyLinkedList, hasCycle, reverseList};

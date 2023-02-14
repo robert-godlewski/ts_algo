@@ -9,7 +9,8 @@ import {
 } from './challenge_202211';
 import {
     MyLinkedList,
-    hasCycle
+    hasCycle,
+    reverseList
 } from './linkedlists_202302';
 import {
     reverseString
@@ -17,7 +18,7 @@ import {
 
 
 // Tools needed to run these tests
-import {ListNode, LL} from './LinkedListTools';
+import {ListNode, LL, SLL} from './LinkedListTools';
 
 
 // Line functions needed to separate code in console.
@@ -167,3 +168,39 @@ console.log('Checking if list [1,2] is a cycled list? ' + cycle1Test2);
 var cl3n = new ListNode(1);
 var cycle1Test3 = hasCycle(cl3n);
 console.log('Checking if list [1] is a cycled list? ' + cycle1Test3);
+
+// Testing reverseList
+function reverseSingleLLTest(list: SLL): void {
+    console.log(`Singly Linked List is: ${list.printLL()}`);
+    var reverseSLLn1: ListNode | null = reverseList(list.head);
+    var cur: ListNode | null = reverseSLLn1;
+    if (cur) {
+        var statement: string = '[';
+        while (cur) {
+            statement += cur.val.toString();
+            if (cur.next) {
+                statement += ', ';
+            } else {
+                statement += ']';
+            };
+            cur = cur.next;
+        };
+        console.log(statement);
+    } else {
+        console.log('[]');
+    };
+};
+
+var revSLL1 = new SLL();
+revSLL1.addAtHead(1);
+revSLL1.addAtTail(2);
+revSLL1.addAtTail(3);
+revSLL1.addAtTail(4);
+revSLL1.addAtTail(5);
+reverseSingleLLTest(revSLL1);
+var revSLL2 = new SLL();
+revSLL2.addAtHead(1);
+revSLL2.addAtTail(2);
+reverseSingleLLTest(revSLL2);
+var revSLLEmpty = new SLL()
+reverseSingleLLTest(revSLLEmpty);
