@@ -10,7 +10,8 @@ import {
 import {
     MyLinkedList,
     hasCycle,
-    reverseList
+    reverseList,
+    removeElements
 } from './linkedlists_202302';
 import {
     reverseString
@@ -144,6 +145,25 @@ thickLine();
 console.log('Linked Lists:');
 thickLine();
 
+function printListfromHead(head: ListNode | null): void{
+    var cur: ListNode | null = head;
+    if (cur) {
+        var statement: string = '[';
+        while (cur) {
+            statement += cur.val.toString();
+            if (cur.next) {
+                statement += ', ';
+            } else {
+                statement += ']';
+            };
+            cur = cur.next;
+        };
+        console.log(statement);
+    } else {
+        console.log('[]');
+    };
+};
+
 // Testing hasCycle
 // Nodes for the first list
 var cl1n1 = new ListNode(3);
@@ -168,27 +188,13 @@ console.log('Checking if list [1,2] is a cycled list? ' + cycle1Test2);
 var cl3n = new ListNode(1);
 var cycle1Test3 = hasCycle(cl3n);
 console.log('Checking if list [1] is a cycled list? ' + cycle1Test3);
+thinLine();
 
 // Testing reverseList
 function reverseSingleLLTest(list: SLL): void {
     console.log(`Singly Linked List is: ${list.printLL()}`);
     var reverseSLLn1: ListNode | null = reverseList(list.head);
-    var cur: ListNode | null = reverseSLLn1;
-    if (cur) {
-        var statement: string = '[';
-        while (cur) {
-            statement += cur.val.toString();
-            if (cur.next) {
-                statement += ', ';
-            } else {
-                statement += ']';
-            };
-            cur = cur.next;
-        };
-        console.log(statement);
-    } else {
-        console.log('[]');
-    };
+    printListfromHead(reverseSLLn1);
 };
 
 var revSLL1 = new SLL();
@@ -204,3 +210,32 @@ revSLL2.addAtTail(2);
 reverseSingleLLTest(revSLL2);
 var revSLLEmpty = new SLL()
 reverseSingleLLTest(revSLLEmpty);
+thinLine();
+
+
+// Testing removeElements
+function removeElementsTest(head: ListNode | null, val: number): void {
+    var new_head = removeElements(head, val);
+    printListfromHead(new_head);
+};
+
+var remESLL1 = new SLL();
+remESLL1.addAtHead(1);
+remESLL1.addAtTail(2);
+remESLL1.addAtTail(6);
+remESLL1.addAtTail(3);
+remESLL1.addAtTail(4);
+remESLL1.addAtTail(5);
+remESLL1.addAtTail(6);
+console.log(`Current list: ${remESLL1.printLL()}`);
+removeElementsTest(remESLL1.head, 6);
+console.log('Current list: []');
+removeElementsTest(null, 1);
+var remESLL2 = new SLL();
+remESLL2.addAtHead(7);
+remESLL2.addAtTail(7);
+remESLL2.addAtTail(7);
+remESLL2.addAtTail(7);
+console.log(`Current list: ${remESLL2.printLL()}`);
+removeElementsTest(remESLL2.head, 7);
+thinLine();

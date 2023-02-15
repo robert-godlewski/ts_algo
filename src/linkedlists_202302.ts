@@ -110,4 +110,32 @@ function reverseList(head: ListNode | null): ListNode | null {
 };
 
 
-export {MyLinkedList, hasCycle, reverseList};
+// Remove Linked List Elements
+// Solved in 30 min
+// O(n) time solution, best case = O(1)
+// O(1) space solution
+function removeElements(head: ListNode | null, val: number): ListNode | null {
+    if (head) {
+        var cur: ListNode | null = head;
+        var prev: ListNode | null = null;
+        while (cur) {
+            if (cur.val == val) {
+                if (cur == head) {
+                    head = cur.next;
+                };
+                if (prev) {
+                    prev.next = cur.next;
+                };
+            } else {
+                prev = cur;
+            };
+            cur = cur.next;
+        };
+        return head;
+    } else {
+        return null;
+    };
+};
+
+
+export {MyLinkedList, hasCycle, reverseList, removeElements};
