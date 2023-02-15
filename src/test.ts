@@ -11,7 +11,8 @@ import {
     MyLinkedList,
     hasCycle,
     reverseList,
-    removeElements
+    removeElements,
+    isPalindrome
 } from './linkedlists_202302';
 import {
     reverseString
@@ -19,7 +20,12 @@ import {
 
 
 // Tools needed to run these tests
-import {ListNode, LL, SLL} from './LinkedListTools';
+import {
+    ListNode,
+    LL,
+    SLL,
+    printLL
+} from './LinkedListTools';
 
 
 // Line functions needed to separate code in console.
@@ -145,25 +151,6 @@ thickLine();
 console.log('Linked Lists:');
 thickLine();
 
-function printListfromHead(head: ListNode | null): void{
-    var cur: ListNode | null = head;
-    if (cur) {
-        var statement: string = '[';
-        while (cur) {
-            statement += cur.val.toString();
-            if (cur.next) {
-                statement += ', ';
-            } else {
-                statement += ']';
-            };
-            cur = cur.next;
-        };
-        console.log(statement);
-    } else {
-        console.log('[]');
-    };
-};
-
 // Testing hasCycle
 // Nodes for the first list
 var cl1n1 = new ListNode(3);
@@ -190,11 +177,12 @@ var cycle1Test3 = hasCycle(cl3n);
 console.log('Checking if list [1] is a cycled list? ' + cycle1Test3);
 thinLine();
 
+
 // Testing reverseList
-function reverseSingleLLTest(list: SLL): void {
-    console.log(`Singly Linked List is: ${list.printLL()}`);
-    var reverseSLLn1: ListNode | null = reverseList(list.head);
-    printListfromHead(reverseSLLn1);
+function reverseSingleLLTest(head: ListNode | null): void {
+    console.log(`Current List: ${printLL(head)}`);
+    var reversed: ListNode | null = reverseList(head);
+    console.log(`Reversed List: ${printLL(reversed)}`);
 };
 
 var revSLL1 = new SLL();
@@ -203,20 +191,20 @@ revSLL1.addAtTail(2);
 revSLL1.addAtTail(3);
 revSLL1.addAtTail(4);
 revSLL1.addAtTail(5);
-reverseSingleLLTest(revSLL1);
+reverseSingleLLTest(revSLL1.head);
 var revSLL2 = new SLL();
 revSLL2.addAtHead(1);
 revSLL2.addAtTail(2);
-reverseSingleLLTest(revSLL2);
-var revSLLEmpty = new SLL()
-reverseSingleLLTest(revSLLEmpty);
+reverseSingleLLTest(revSLL2.head);
+reverseSingleLLTest(null);
 thinLine();
 
 
 // Testing removeElements
 function removeElementsTest(head: ListNode | null, val: number): void {
+    console.log(`Current list: ${printLL(head)}`);
     var new_head = removeElements(head, val);
-    printListfromHead(new_head);
+    console.log(`New List: ${printLL(new_head)}`);
 };
 
 var remESLL1 = new SLL();
@@ -227,15 +215,31 @@ remESLL1.addAtTail(3);
 remESLL1.addAtTail(4);
 remESLL1.addAtTail(5);
 remESLL1.addAtTail(6);
-console.log(`Current list: ${remESLL1.printLL()}`);
 removeElementsTest(remESLL1.head, 6);
-console.log('Current list: []');
 removeElementsTest(null, 1);
 var remESLL2 = new SLL();
 remESLL2.addAtHead(7);
 remESLL2.addAtTail(7);
 remESLL2.addAtTail(7);
 remESLL2.addAtTail(7);
-console.log(`Current list: ${remESLL2.printLL()}`);
 removeElementsTest(remESLL2.head, 7);
+thinLine();
+
+
+// Testing isPalindrome
+function isPalindromeTest(head: ListNode | null): void {
+    console.log(`Original list: ${printLL(head)}`);
+    var palindrome: boolean = isPalindrome(head);
+    console.log(`Is Palindrome: ${palindrome}`);
+}
+var palSLL1 = new SLL();
+palSLL1.addAtHead(1);
+palSLL1.addAtTail(2);
+palSLL1.addAtTail(2);
+palSLL1.addAtTail(1);
+isPalindromeTest(palSLL1.head);
+var palSLL2 = new SLL();
+palSLL2.addAtHead(1);
+palSLL2.addAtTail(2);
+isPalindromeTest(palSLL2.head);
 thinLine();

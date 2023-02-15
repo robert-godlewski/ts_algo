@@ -138,4 +138,24 @@ function removeElements(head: ListNode | null, val: number): ListNode | null {
 };
 
 
-export {MyLinkedList, hasCycle, reverseList, removeElements};
+// Palindrom Linked List
+// Solved in 20 min
+// O(2n) = O(n) time solution
+// O(n) space solution
+function isPalindrome(head: ListNode | null): boolean {
+    var cur: ListNode | null = head;
+    var vals: string = "";
+    while (cur) {
+        vals += cur.val.toString();
+        cur = cur.next;
+    };
+    for (var i: number = 0; i < (vals.length/2); i++) {
+        if (vals[i] != vals[vals.length-i-1]) {
+            return false;
+        };
+    };
+    return true;
+};
+
+
+export {MyLinkedList, hasCycle, reverseList, removeElements, isPalindrome};

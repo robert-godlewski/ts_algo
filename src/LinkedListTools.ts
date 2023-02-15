@@ -97,27 +97,28 @@ class SLL {
             this.tail = node;
         };
     };
+};
 
-    // Returning the list as a string
-    printLL(): string {
-        var cur: ListNode | null = this.head;
-        if (cur) {
-            var statement: string = '[';
-            while (cur) {
-                statement += cur.val.toString();
-                if (cur.next) {
-                    statement += ', ';
-                } else {
-                    statement += ']';
-                };
-                cur = cur.next;
+
+// Returning a string from a given Linked list node
+function printLL(head: ListNode | null): string {
+    var cur: ListNode | null = head;
+    if (cur) {
+        var statement: string = '[';
+        while (cur) {
+            statement += cur.val.toString();
+            if (cur.next) {
+                statement += ', ';
+            } else {
+                statement += ']';
             };
-            return statement;
-        } else {
-            return '[]';
+            cur = cur.next;
         };
+        return statement;
+    } else {
+        return '[]';
     };
 };
 
 
-export {ListNode, LL, SLL};
+export {ListNode, LL, SLL, printLL};
