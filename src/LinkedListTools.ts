@@ -44,26 +44,6 @@ class LL {
             this.tail = node;
         };
     };
-
-    // Returning the list as a string
-    printLL(): string {
-        var cur: ListNode | null = this.head;
-        if (cur) {
-            var statement: string = '[';
-            while (cur) {
-                statement += cur.val.toString();
-                if (cur.next) {
-                    statement += ', ';
-                } else {
-                    statement += ']';
-                };
-                cur = cur.next;
-            };
-            return statement;
-        } else {
-            return '[]';
-        };
-    };
 };
 
 

@@ -8,7 +8,7 @@ Compile via root directory with: tsc
 
 # Am currently doing:
 * Linked Lists
-* Recursion
+* Queues and Stacks
 
 # Need to do:
 General road map taken from LeetCode

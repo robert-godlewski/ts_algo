@@ -26,6 +26,7 @@ import {
     SLL,
     printLL
 } from './LinkedListTools';
+import {CircularQueue} from './QueueStackTools';
 
 
 // Line functions needed to separate code in console.
@@ -97,9 +98,9 @@ stepTest(123);
 thinLine();
 
 // Testing middleNode
-function middleNodeTest(list: LL): void {
-    console.log('Finding the middle node in ' + list.printLL() + ' is:');
-    var middle = middleNode(list.head);
+function middleNodeTest(head: ListNode | null): void {
+    console.log(`Finding the middle node in ${printLL(head)} is:`);
+    var middle: ListNode | null = middleNode(head);
     if (middle) {
         console.log(middle.val);
     } else {
@@ -113,9 +114,9 @@ midNL.addAtTail(2);
 midNL.addAtTail(3);
 midNL.addAtTail(4);
 midNL.addAtTail(5);
-middleNodeTest(midNL);
+middleNodeTest(midNL.head);
 midNL.addAtTail(6);
-middleNodeTest(midNL);
+middleNodeTest(midNL.head);
 thinLine();
 
 // Testing canConstruct
@@ -243,3 +244,43 @@ palSLL2.addAtHead(1);
 palSLL2.addAtTail(2);
 isPalindromeTest(palSLL2.head);
 thinLine();
+
+
+// ***** Queue Problems *****
+thickLine();
+console.log('Solving Queue Problems:');
+thickLine();
+
+// Designing a Circular Queue
+function enQueueTest(cq: CircularQueue, param: boolean): void {
+    if (param) {
+        console.log(`Sucessfully added in a new element: ${cq.queue}`);
+    } else {
+        console.log('Was not able to update the queue!');
+    };
+}
+var circleQueue = new CircularQueue(3);
+console.log(`Created a new circle queue: ${circleQueue.queue}`);
+var param_1: boolean = circleQueue.enQueue(1);
+enQueueTest(circleQueue, param_1);
+var param_2: boolean = circleQueue.enQueue(2);
+enQueueTest(circleQueue, param_2);
+var param_3: boolean = circleQueue.enQueue(3);
+enQueueTest(circleQueue, param_3);
+var param_4: boolean = circleQueue.enQueue(4);
+enQueueTest(circleQueue, param_4);
+console.log(`The end of the queue = ${circleQueue.Rear()}`);
+console.log(`The index of the rear of the queue = ${circleQueue.rear}`);
+console.log(`Is this queue full? ${circleQueue.isFull()}`);
+var param_5: boolean = circleQueue.deQueue();
+if (param_5) {
+    console.log(`Sucessfully removed an element: ${circleQueue.queue}`);
+} else {
+    console.log('Was not able to update the queue!');
+};
+var param_6: boolean = circleQueue.enQueue(4);
+enQueueTest(circleQueue, param_6);
+console.log(`The end of the queue = ${circleQueue.Rear()}`);
+console.log(`The index of the rear of the queue = ${circleQueue.rear}`);
+console.log(`The front of the queue = ${circleQueue.Front()}`);
+console.log(`The index of the front of the queue = ${circleQueue.front}`);
