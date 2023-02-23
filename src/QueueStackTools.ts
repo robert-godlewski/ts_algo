@@ -1,4 +1,5 @@
 // My creation of both Queues and Stacks
+import {ListNode, LL} from './LinkedListTools';
 
 // Queue with an array implementation
 // There can be no values less than 0, if there are it means the value is empty.
@@ -79,4 +80,42 @@ class CircularQueue {
 };
 
 
-export {CircularQueue};
+// Stack with an array implementation
+class MinStack {
+    // first number is the value
+    // second number is the min value
+    stack: [number, number][];
+
+    constructor() {
+        this.stack = [];
+    };
+
+    push(val: number): void {
+        var min: number;
+        if (this.stack.length > 0) {
+            if (this.stack[this.stack.length-1][1] > val) {
+                min = val;
+            } else {
+                min = this.stack[this.stack.length-1][1];
+            };
+        } else {
+            min = val;
+        };
+        this.stack.push([val, min])
+    };
+
+    pop(): void {
+        this.stack.pop()
+    };
+
+    top(): number {
+        return this.stack[this.stack.length-1][0];
+    };
+
+    getMin(): number {
+        return this.stack[this.stack.length-1][1];
+    };
+};
+
+
+export {CircularQueue, MinStack};

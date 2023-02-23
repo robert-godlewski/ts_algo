@@ -26,7 +26,10 @@ import {
     SLL,
     printLL
 } from './LinkedListTools';
-import {CircularQueue} from './QueueStackTools';
+import {
+    CircularQueue,
+    MinStack
+} from './QueueStackTools';
 
 
 // Line functions needed to separate code in console.
@@ -284,3 +287,24 @@ console.log(`The end of the queue = ${circleQueue.Rear()}`);
 console.log(`The index of the rear of the queue = ${circleQueue.rear}`);
 console.log(`The front of the queue = ${circleQueue.Front()}`);
 console.log(`The index of the front of the queue = ${circleQueue.front}`);
+
+
+// ***** Stack Problems *****
+thickLine();
+console.log('Solving Queue Problems:');
+thickLine();
+
+// Testing out MinStack
+var minStack = new MinStack();
+console.log(minStack.stack);
+minStack.push(-2);
+console.log(minStack.stack);
+minStack.push(0);
+console.log(minStack.stack);
+minStack.push(-3);
+console.log(minStack.stack);
+console.log(minStack.getMin());
+minStack.pop();
+console.log(minStack.stack)
+console.log(minStack.top());
+console.log(minStack.getMin());
