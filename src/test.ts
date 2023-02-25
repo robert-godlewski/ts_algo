@@ -28,7 +28,10 @@ import {
 } from './LinkedListTools';
 import {
     CircularQueue,
-    MinStack
+    LinkedQueue,
+    MinStack,
+    ArrayStack,
+    LinkedStack
 } from './QueueStackTools';
 
 
@@ -287,7 +290,52 @@ console.log(`The end of the queue = ${circleQueue.Rear()}`);
 console.log(`The index of the rear of the queue = ${circleQueue.rear}`);
 console.log(`The front of the queue = ${circleQueue.Front()}`);
 console.log(`The index of the front of the queue = ${circleQueue.front}`);
+thinLine();
 
+
+// Testing out LinkedQueue
+function checkFront(node: ListNode | null): void {
+    var message: string = `The front of the queue = `;
+    if (node) {
+        message += node.val;
+    } else {
+        message += `null`;
+    };
+    console.log(message);
+};
+
+function checkBack(node: ListNode | null): void {
+    var message: string = `The back of the queue = `;
+    if (node) {
+        message += node.val;
+    } else {
+        message += `null`;
+    };
+    console.log(message);
+}
+
+var linkedQueue = new LinkedQueue();
+var emptyFront: ListNode | null = linkedQueue.front();
+checkFront(emptyFront);
+var emptyBack: ListNode | null = linkedQueue.back();
+checkBack(emptyBack);
+var badDeQueue: ListNode | null = linkedQueue.deQueue();
+if (badDeQueue) {
+    console.log(`The deQueue is unsuccessful because it returned ${badDeQueue.val}`);
+} else {
+    console.log(`The deQueue is a success because it returned ${badDeQueue}`);
+};
+linkedQueue.enQueue(1);
+var updatedFront: ListNode | null = linkedQueue.front();
+checkFront(updatedFront);
+linkedQueue.enQueue(2);
+linkedQueue.enQueue(3);
+var updatedBack: ListNode | null = linkedQueue.back();
+checkBack(updatedBack);
+var removedNode: any = linkedQueue.deQueue();
+console.log(`Removed (${removedNode})(${typeof(removedNode)}) from the queue.`);
+var newFront: ListNode | null = linkedQueue.front();
+checkFront(newFront);
 
 // ***** Stack Problems *****
 thickLine();
@@ -308,3 +356,4 @@ minStack.pop();
 console.log(minStack.stack)
 console.log(minStack.top());
 console.log(minStack.getMin());
+thinLine();
