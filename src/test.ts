@@ -14,9 +14,8 @@ import {
     removeElements,
     isPalindrome
 } from './linkedlists_202302';
-import {
-    reverseString
-} from './recursion1_202302';
+import {twoSum} from './hashtables_202303';
+import {reverseString} from './recursion1_202302';
 
 
 // Tools needed to run these tests
@@ -252,6 +251,25 @@ isPalindromeTest(palSLL2.head);
 thinLine();
 
 
+// ***** Hashmap Problems ******
+thickLine();
+console.log('Solving Hashmap Problems:');
+thickLine();
+
+// Solving twoSum
+function twoSumTest(nums: number[], target: number): void {
+    console.log(`Trying to find 2 numbers in [${nums}] that = ${target} are:`);
+    var answer: number[] = twoSum(nums, target);
+    console.log(answer);
+};
+
+console.log("Finding the sum of 2 numbers:")
+twoSumTest([2,7,11,15],9);
+twoSumTest([3,2,4],6);
+twoSumTest([3,3],6);
+thinLine();
+
+
 // ***** Queue Problems *****
 thickLine();
 console.log('Solving Queue Problems:');
@@ -264,7 +282,8 @@ function enQueueTest(cq: CircularQueue, param: boolean): void {
     } else {
         console.log('Was not able to update the queue!');
     };
-}
+};
+
 var circleQueue = new CircularQueue(3);
 console.log(`Created a new circle queue: ${circleQueue.queue}`);
 var param_1: boolean = circleQueue.enQueue(1);
