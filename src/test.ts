@@ -14,7 +14,10 @@ import {
     removeElements,
     isPalindrome
 } from './linkedlists_202302';
-import {twoSum} from './hashtables_202303';
+import {
+    twoSum,
+    isIsomorphic
+} from './hashtables_202303';
 import {reverseString} from './recursion1_202302';
 
 
@@ -263,12 +266,23 @@ function twoSumTest(nums: number[], target: number): void {
     console.log(answer);
 };
 
-console.log("Finding the sum of 2 numbers:")
+console.log("Finding the sum of 2 numbers:");
 twoSumTest([2,7,11,15],9);
 twoSumTest([3,2,4],6);
 twoSumTest([3,3],6);
 thinLine();
 
+// Solving isIsomorphic
+function isomorphicTest(s: string, t:string): void {
+    var answer: boolean = isIsomorphic(s, t)
+    console.log(`Is (${s}) isomorphic to (${t})? ${answer}`);
+};
+
+console.log("Finding if 2 strings are isomorphic to eachother:");
+isomorphicTest('egg','add');
+isomorphicTest('foo','bar');
+isomorphicTest('paper','title');
+thinLine();
 
 // ***** Queue Problems *****
 thickLine();

@@ -55,4 +55,43 @@ function twoSum(nums: number[], target: number): number[] {
 };
 
 
-export {twoSum};
+// Isomorphic Strings
+// Solved over 30 min
+// Best time and space cases = O(1)
+// O(2n) = O(n) time solution
+// O(2n) = O(n) space solution
+function isIsomorphic(s: string, t: string): boolean {
+    // Base case to kill the program if the lengths are not the same
+    if (s.length != t.length) {
+        return false;
+    };
+    var s2t_map: any = {};
+    var t2s_map: any = {};
+    for (var i: number = 0; i < s.length; i++) {
+        if (!s2t_map[s[i]] && !t2s_map[t[i]]) {
+            // Add in the hashes for the letters
+            s2t_map[s[i]] = {
+                "corres": t[i],
+                "indexes": [i]
+            };
+            t2s_map[t[i]] = {
+                "corres": s[i],
+                "indexes": [i]
+            };
+        } else if (s2t_map[s[i]] && t2s_map[t[i]]) {
+            // Updates the index list if the corres(ponding) letters are equal
+            if (s2t_map[s[i]]["corres"] === t[i] && t2s_map[t[i]]["corres"] === s[i]) {
+                s2t_map[s[i]]["indexes"].push(i);
+                t2s_map[t[i]]["indexes"].push(i);
+            } else {
+                return false;
+            };
+        } else {
+            return false
+        };
+    };
+    return true;
+};
+
+
+export {twoSum, isIsomorphic};
