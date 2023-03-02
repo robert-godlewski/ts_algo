@@ -128,4 +128,25 @@ function findRestaurant(list1: string[], list2: string[]): string[] {
 };
 
 
-export {twoSum, isIsomorphic, findRestaurant};
+// First Unique Character in a string
+// Solved in 15 min
+// O(n) time and space solutions
+function firstUniqChar(s: string): number {
+    var s_map: any = {};
+    for (var i: number = 0; i < s.length; i++) {
+        if (s_map[s[i]]) {
+            s_map[s[i]].push(i);
+        } else {
+            s_map[s[i]] = [i];
+        };
+    };
+    for (var i: number = 0; i < s.length; i++) {
+        if (s_map[s[i]].length == 1) {
+            return i;
+        };
+    };
+    return -1;
+};
+
+
+export {twoSum, isIsomorphic, findRestaurant, firstUniqChar};

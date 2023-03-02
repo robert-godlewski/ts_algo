@@ -17,7 +17,8 @@ import {
 import {
     twoSum,
     isIsomorphic,
-    findRestaurant
+    findRestaurant,
+    firstUniqChar
 } from './hashtables_202303';
 import {reverseString} from './recursion1_202302';
 
@@ -306,6 +307,24 @@ findRestaurantTest([
 ]);
 findRestaurantTest(["happy","sad","good"], ["sad","happy","good"]);
 thinLine();
+
+// Solving firstUniqChar
+function firstUniqCharTest(s: string): void {
+    var unique_index: number = firstUniqChar(s);
+    console.log(`First unique charater index in ${s} = ${unique_index}`);
+    if (unique_index >= 0) {
+        console.log(`Letter is ${s[unique_index]}`);
+    } else {
+        console.log(`Did not find a unique letter in ${s}`);
+    };
+};
+
+console.log("Finding unique characters in strings:");
+firstUniqCharTest("leetcode");
+firstUniqCharTest("loveleetcode");
+firstUniqCharTest("aabb");
+thinLine();
+
 
 // ***** Queue Problems *****
 thickLine();
