@@ -94,4 +94,38 @@ function isIsomorphic(s: string, t: string): boolean {
 };
 
 
-export {twoSum, isIsomorphic};
+// Minimum Index Sum of Two Lists
+// Solved in 2:30
+function findRestaurant(list1: string[], list2: string[]): string[] {
+    var name_map: any = {};
+    for (var i: number = 0; i < list1.length; i++) {
+        if (!name_map[list1[i]]) {
+            name_map[list1[i]] = {
+                "index_sum": i,
+                "indexes": [i]
+            };
+        };
+    };
+    for (var i: number = 0; i < list2.length; i++) {
+        if (name_map[list2[i]]) {
+            name_map[list2[i]]["index_sum"] += i;
+            name_map[list2[i]]["indexes"].push(i);
+        };
+    };
+    var lowSum: number = 1000;
+    var key: string = name_map[list1[0]];
+    var answer: string[] = [];
+    for (key in name_map) {
+        if (name_map[key]["index_sum"] <= lowSum && name_map[key]["indexes"].length > 1) {
+            if (name_map[key]["index_sum"] < lowSum) {
+                answer = [];
+                lowSum = name_map[key]["index_sum"];
+            };
+            answer.push(key);
+        };
+    };
+    return answer;
+};
+
+
+export {twoSum, isIsomorphic, findRestaurant};

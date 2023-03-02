@@ -16,7 +16,8 @@ import {
 } from './linkedlists_202302';
 import {
     twoSum,
-    isIsomorphic
+    isIsomorphic,
+    findRestaurant
 } from './hashtables_202303';
 import {reverseString} from './recursion1_202302';
 
@@ -282,6 +283,28 @@ console.log("Finding if 2 strings are isomorphic to eachother:");
 isomorphicTest('egg','add');
 isomorphicTest('foo','bar');
 isomorphicTest('paper','title');
+thinLine();
+
+// Solving findRestaurant
+function findRestaurantTest(list1: string[], list2: string[]): void {
+    console.log(`First list of Restaurants: [${list1}]`);
+    console.log(`Second list of Restaurants: [${list2}]`);
+    var common_rest_list: string[] = findRestaurant(list1, list2);
+    console.log(`Found these Restaurants: [${common_rest_list}]`);
+};
+
+console.log("Finding common restaurants between 2 strings:");
+findRestaurantTest([
+    "Shogun","Tapioca Express","Burger King","KFC"
+], [
+    "Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"
+]);
+findRestaurantTest([
+    "Shogun","Tapioca Express","Burger King","KFC"
+], [
+    "KFC","Shogun","Burger King"
+]);
+findRestaurantTest(["happy","sad","good"], ["sad","happy","good"]);
 thinLine();
 
 // ***** Queue Problems *****
