@@ -18,7 +18,8 @@ import {
     twoSum,
     isIsomorphic,
     findRestaurant,
-    firstUniqChar
+    firstUniqChar,
+    intersect
 } from './hashtables_202303';
 import {reverseString} from './recursion1_202302';
 
@@ -325,6 +326,17 @@ firstUniqCharTest("loveleetcode");
 firstUniqCharTest("aabb");
 thinLine();
 
+// Solving intersect
+function intersectMapTest(nums1: number[], nums2: number[]): void {
+    console.log(`Where does [${nums1}] intersect with [${nums2}]?`);
+    var answer = intersect(nums1, nums2);
+    console.log(`At [${answer}]`);
+};
+
+console.log("Finding the intersection of 2 arrays:");
+intersectMapTest([1,2,2,1], [2,2]);
+intersectMapTest([4,9,5], [9,4,9,8,4]);
+thinLine();
 
 // ***** Queue Problems *****
 thickLine();

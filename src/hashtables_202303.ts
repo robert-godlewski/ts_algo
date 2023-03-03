@@ -149,4 +149,25 @@ function firstUniqChar(s: string): number {
 };
 
 
-export {twoSum, isIsomorphic, findRestaurant, firstUniqChar};
+// Intersection of 2 arrays II
+// Regular solution
+// Solved in 30 min - Bad solution
+function intersect(nums1: number[], nums2: number[]): number[] {
+    var answer: number[] = [];
+    for (var i: number = 0; i < nums1.length; i++) {
+        for (var j: number = 0; j < nums2.length; j++) {
+            if (nums1[i] == nums2[j]) {
+                answer.push(nums1[i]);
+            } else if (answer.length > 0) {
+                break;
+            };
+        };
+        if (answer.length > 0) {
+            break;
+        };
+    };
+    return answer;
+};
+
+
+export {twoSum, isIsomorphic, findRestaurant, firstUniqChar, intersect};
