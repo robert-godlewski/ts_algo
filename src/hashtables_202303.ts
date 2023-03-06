@@ -150,20 +150,23 @@ function firstUniqChar(s: string): number {
 
 
 // Intersection of 2 arrays II
-// Regular solution
-// Solved in 30 min - Bad solution
+// Solved over 30 min
 function intersect(nums1: number[], nums2: number[]): number[] {
+    // Sorting the list
+    nums1 = nums1.sort();
+    nums2 = nums2.sort();
     var answer: number[] = [];
-    for (var i: number = 0; i < nums1.length; i++) {
-        for (var j: number = 0; j < nums2.length; j++) {
-            if (nums1[i] == nums2[j]) {
-                answer.push(nums1[i]);
-            } else if (answer.length > 0) {
-                break;
-            };
-        };
-        if (answer.length > 0) {
-            break;
+    var i: number = 0;
+    var j: number = 0;
+    while (i < nums1.length && j < nums2.length) {
+        if (nums1[i] == nums2[j]) {
+            answer.push(nums1[i]);
+            i++;
+            j++;
+        } else if (nums1[i] < nums2[j]) {
+            i++;
+        } else if (nums1[i] > nums2[j]) {
+            j++;
         };
     };
     return answer;
