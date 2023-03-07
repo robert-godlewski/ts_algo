@@ -21,7 +21,10 @@ import {
     firstUniqChar,
     intersect
 } from './hashtables_202303';
-import {reverseString} from './recursion1_202302';
+import {
+    reverseString,
+    swapPairs
+} from './recursion1_202302';
 
 
 // Tools needed to run these tests
@@ -142,21 +145,6 @@ constructTest('aa', 'ab');
 constructTest('aa', 'aab');
 thinLine();
 
-
-// **** Recursion 1 Problems ****
-thickLine();
-console.log('Recursion Practice:')
-thickLine();
-
-// Testing reverseString
-function reverseStringTest(s: string[]): void {
-    console.log('Reversing this string array:');
-    console.log(s);
-    reverseString(s);
-};
-
-reverseStringTest(["h","e","l","l","o"]);
-reverseStringTest(["H","a","n","n","a","h"]);
 
 // **** Linked List Problems ****
 thickLine();
@@ -444,3 +432,37 @@ console.log(minStack.stack)
 console.log(minStack.top());
 console.log(minStack.getMin());
 thinLine();
+
+
+// **** Recursion 1 Problems ****
+thickLine();
+console.log('Recursion Practice:')
+thickLine();
+
+// Testing reverseString
+function reverseStringTest(s: string[]): void {
+    console.log('Reversing this string array:');
+    console.log(s);
+    reverseString(s);
+};
+
+reverseStringTest(["h","e","l","l","o"]);
+reverseStringTest(["H","a","n","n","a","h"]);
+
+// Testing swapPairs
+function swapPairsTest(head: ListNode | null): void {
+    console.log('Swaping the nodes of this list:');
+    printLL(head);
+    var swapped: ListNode | null = swapPairs(head);
+    printLL(swapped);
+};
+
+var swapList = new SLL();
+swapList.addAtHead(1);
+swapList.addAtTail(2);
+swapList.addAtTail(3);
+swapList.addAtTail(4);
+swapPairsTest(swapList.head);
+swapPairsTest(null);
+var singleNode = new ListNode(1);
+swapPairsTest(singleNode);
