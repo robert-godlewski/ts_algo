@@ -21,39 +21,27 @@ function reverseString(s: string[]): void {
 };
 
 // Swap Nodes in Pairs
-// Bad solution it crashed in an infinate loop
-function swapPairs(head: ListNode | null): ListNode | null {
-    if (head && head.next) {
+// Not returning the right data for some reason took over an hour to get to here
+function swapPairs(head: ListNode | null, prev: ListNode | null = null): ListNode | null {
+    if (head) {
         var cur: ListNode | null = head;
-        var prev: ListNode | null = null;
         var next: ListNode | null = cur.next;
-        var swap: boolean = true;
-        while (cur) {
-            if (cur == head) {
-                head = next;
-            };
-            if (swap && next) {
-                cur.next = next.next;
-                if (prev) {
-                    prev.next = next;
-                };
-                next.next = cur;
-                prev = next;
-                next = cur.next;
-            } else {
-                if (next) {
-                    next.next
-                };
-                cur = cur.next;
-                if (prev) {
-                    prev = prev.next;
-                };
-            };
-            swap = !swap;
+        if (prev) {
+            prev.next = next;
         };
-        return head;
-    } else if (head) {
-        return head;
+        if (next) {
+            cur.next = next.next;
+            next.next = cur;
+        };
+        cur = swapPairs(head=cur.next, prev=cur);
+        //head = next;
+        if (prev) {
+            return prev;
+        } else {
+            return next;
+        };
+    } else if (prev) {
+        return prev;
     } else {
         return null;
     };

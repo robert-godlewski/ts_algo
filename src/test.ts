@@ -448,21 +448,21 @@ function reverseStringTest(s: string[]): void {
 
 reverseStringTest(["h","e","l","l","o"]);
 reverseStringTest(["H","a","n","n","a","h"]);
+thinLine();
 
-// Testing swapPairs
-function swapPairsTest(head: ListNode | null): void {
-    console.log('Swaping the nodes of this list:');
-    printLL(head);
-    var swapped: ListNode | null = swapPairs(head);
-    printLL(swapped);
-};
-
-var swapList = new SLL();
-swapList.addAtHead(1);
-swapList.addAtTail(2);
-swapList.addAtTail(3);
-swapList.addAtTail(4);
-swapPairsTest(swapList.head);
-swapPairsTest(null);
-var singleNode = new ListNode(1);
-swapPairsTest(singleNode);
+// Testing swapPairs - Bad solution
+// function swapPairsTest(head: ListNode | null): void {
+//     console.log('Swaping the nodes of this list:');
+//     printLL(head);
+//     var swapped: ListNode | null = swapPairs(head);
+//     printLL(swapped);
+// };
+// var swapList = new SLL();
+// swapList.addAtHead(1);
+// swapList.addAtTail(2);
+// swapList.addAtTail(3);
+// swapList.addAtTail(4);
+// swapPairsTest(swapList.head);
+// swapPairsTest(null);
+// var singleNode = new ListNode(1);
+// swapPairsTest(singleNode);
