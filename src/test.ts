@@ -23,7 +23,8 @@ import {
 } from './hashtables_202303';
 import {
     reverseString,
-    swapPairs
+    //swapPairs,
+    reverseListRecursive
 } from './recursion1_202302';
 
 
@@ -466,3 +467,24 @@ thinLine();
 // swapPairsTest(null);
 // var singleNode = new ListNode(1);
 // swapPairsTest(singleNode);
+
+// Testing reverseListRecursive
+function reverseListRecTest(head: ListNode | null): void {
+    console.log(`Reversing this list recursively: ${printLL(head)}`);
+    var reversedLL = reverseListRecursive(head);
+    console.log(`The reversed list: ${printLL(reversedLL)}`);
+};
+
+var revSLLRec1 = new SLL();
+revSLLRec1.addAtHead(1);
+revSLLRec1.addAtTail(2);
+revSLLRec1.addAtTail(3);
+revSLLRec1.addAtTail(4);
+revSLLRec1.addAtTail(5);
+reverseListRecTest(revSLLRec1.head);
+var revSLLRec2 = new SLL();
+revSLLRec2.addAtHead(1);
+revSLLRec2.addAtTail(2);
+reverseListRecTest(revSLLRec2.head);
+reverseListRecTest(null);
+thinLine();

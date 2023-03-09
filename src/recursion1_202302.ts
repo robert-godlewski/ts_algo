@@ -20,7 +20,7 @@ function reverseString(s: string[]): void {
     console.log(`Reversed String = [${s}]`);
 };
 
-// Swap Nodes in Pairs
+// Swap Nodes in Pairs - Bad solution
 // Not returning the right data for some reason took over an hour to get to here
 function swapPairs(head: ListNode | null, prev: ListNode | null = null): ListNode | null {
     if (head) {
@@ -47,5 +47,23 @@ function swapPairs(head: ListNode | null, prev: ListNode | null = null): ListNod
     };
 };
 
+// Revrse Linked List
+// Took about 45 min to solve
+// O(1) time solution
+// O(n) space solution
+function reverseListRecursive(head: ListNode | null, prev: ListNode | null = null): ListNode | null {
+    if (head && head.next) {
+        var cur: ListNode | null = head;
+        var next: ListNode | null = cur.next;
+        cur.next = prev;
+        next = reverseListRecursive(next, cur);
+        if (next && !next.next) {
+            next.next = cur;
+        };
+        head = next;
+    };
+    return head;
+};
 
-export {reverseString, swapPairs};
+
+export {reverseString, swapPairs, reverseListRecursive};
