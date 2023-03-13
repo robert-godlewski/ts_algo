@@ -22,6 +22,9 @@ import {
     intersect
 } from './hashtables_202303';
 import {
+    preorderTraversal
+} from './binarytrees_202303';
+import {
     reverseString,
     //swapPairs,
     reverseListRecursive
@@ -42,6 +45,9 @@ import {
     ArrayStack,
     LinkedStack
 } from './QueueStackTools';
+import {
+    TreeNode
+} from './BinaryTreeTools';
 
 
 // Line functions needed to separate code in console.
@@ -432,6 +438,27 @@ minStack.pop();
 console.log(minStack.stack)
 console.log(minStack.top());
 console.log(minStack.getMin());
+thinLine();
+
+// ***** Binary Tree Problems ****
+thickLine();
+console.log('Solving Binary Tree Problems:');
+thickLine();
+
+// Testing out preorderTraversal
+function preorderTraversalTest(root: TreeNode | null): void {
+    console.log('');
+    var preorderList: number[] = preorderTraversal(root);
+    console.log(`The list = [${preorderList}]`);
+};
+
+var preOTR1 = new TreeNode(1);
+preOTR1.right = new TreeNode(2);
+preOTR1.right.left = new TreeNode(3);
+preorderTraversalTest(preOTR1);
+preorderTraversalTest(null);
+var preOTR2 = new TreeNode(1);
+preorderTraversalTest(preOTR2);
 thinLine();
 
 

@@ -2,7 +2,7 @@
 // ********************
 class ListNode {
     // Initializing class variables
-    val: number;
+    val: any;
     next: ListNode | null;
     prev: ListNode | null;
 
