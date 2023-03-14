@@ -22,7 +22,9 @@ import {
     intersect
 } from './hashtables_202303';
 import {
-    preorderTraversal
+    preorderTraversal,
+    inorderTraversal,
+    postorderTraversal
 } from './binarytrees_202303';
 import {
     reverseString,
@@ -445,20 +447,44 @@ thickLine();
 console.log('Solving Binary Tree Problems:');
 thickLine();
 
-// Testing out preorderTraversal
+// Testing out preorderTraversal, inorderTraversal
+// For all
+var oTR1 = new TreeNode(1);
+oTR1.right = new TreeNode(2);
+oTR1.right.left = new TreeNode(3);
+var oTR2 = new TreeNode(1);
+
 function preorderTraversalTest(root: TreeNode | null): void {
-    console.log('');
     var preorderList: number[] = preorderTraversal(root);
-    console.log(`The list = [${preorderList}]`);
+    console.log(`The preorder list = [${preorderList}]`);
 };
 
-var preOTR1 = new TreeNode(1);
-preOTR1.right = new TreeNode(2);
-preOTR1.right.left = new TreeNode(3);
-preorderTraversalTest(preOTR1);
+function inorderTraversalTest(root: TreeNode | null): void {
+    var inorderList: number[] = inorderTraversal(root);
+    console.log(`The inorder list = [${inorderList}]`);
+};
+
+function postorderTraversalTest(root: TreeNode | null): void {
+    var postorderList: number[] = postorderTraversal(root);
+    console.log(`The postorder list = [${postorderList}]`);
+};
+
+// preorder
+preorderTraversalTest(oTR1);
 preorderTraversalTest(null);
-var preOTR2 = new TreeNode(1);
-preorderTraversalTest(preOTR2);
+preorderTraversalTest(oTR2);
+thinLine();
+
+// inorder
+inorderTraversalTest(oTR1);
+inorderTraversalTest(null);
+inorderTraversalTest(oTR2);
+thinLine();
+
+// postorder
+postorderTraversalTest(oTR1);
+postorderTraversalTest(null);
+postorderTraversalTest(oTR2);
 thinLine();
 
 
