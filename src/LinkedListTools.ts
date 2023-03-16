@@ -107,6 +107,8 @@ class LL {
         };
         if (this.head) {
             this.size--;
+        } else if (!this.head && this.size > 0) {
+            this.size = 0;
         };
     };
 

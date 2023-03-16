@@ -24,7 +24,8 @@ import {
 import {
     preorderTraversal,
     inorderTraversal,
-    postorderTraversal
+    postorderTraversal,
+    levelOrder
 } from './binarytrees_202303';
 import {
     reverseString,
@@ -447,7 +448,7 @@ thickLine();
 console.log('Solving Binary Tree Problems:');
 thickLine();
 
-// Testing out preorderTraversal, inorderTraversal
+// Testing out preorderTraversal, inorderTraversal, postorderTraversal
 // For all
 var oTR1 = new TreeNode(1);
 oTR1.right = new TreeNode(2);
@@ -486,6 +487,21 @@ postorderTraversalTest(oTR1);
 postorderTraversalTest(null);
 postorderTraversalTest(oTR2);
 thinLine();
+
+// Testing out level Order
+function levelOrderTest(root: TreeNode | null): void {
+    var levelOrderList: number[][] = levelOrder(root);
+    console.log(`The level order list = [${levelOrderList}]`);
+};
+
+var lo1 = new TreeNode(3);
+lo1.left = new TreeNode(9);
+lo1.right = new TreeNode(20);
+lo1.right.left = new TreeNode(15);
+lo1.right.right = new TreeNode(7);
+levelOrderTest(lo1);
+levelOrderTest(oTR2);
+levelOrderTest(null);
 
 
 // **** Recursion 1 Problems ****

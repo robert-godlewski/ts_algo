@@ -1,5 +1,7 @@
 // Binary Tree algorithms solved in Mar 2023
 import {TreeNode} from "./BinaryTreeTools";
+import {ListNode} from "./LinkedListTools";
+import {LinkedQueue} from "./QueueStackTools";
 
 
 // Binary Tree Preorder Traversal
@@ -53,5 +55,35 @@ function postorderTraversal(root: TreeNode | null, list: number[]=[]): number[] 
     return list;
 };
 
+// Binary Tree Level Order Traversal
+// Solution - Need to review
+function levelOrder(root: TreeNode | null): number[][] {
+    var list: number[][] = [];
+    if (root) {
+        var queue = new LinkedQueue();
+        queue.enQueue(root);
+        while (queue.front()) {
+            var levelLen: number = queue.size;
+            var level: number[] = [];
+            for (var i: number = 0; i < levelLen; i++) {
+                var node: TreeNode | null = queue.deQueue();
+                if (node) {
+                    level.push(node.val);
+                    if (node.left) {
+                        queue.enQueue(node.left);
+                    };
+                    if (node.right) {
+                        queue.enQueue(node.right);
+                    };
+                };
+            };
+            if (level.length > 0) {
+                list.push(level);
+            };
+        };
+    };
+    return list;
+};
 
-export {preorderTraversal, inorderTraversal, postorderTraversal};
+
+export {preorderTraversal, inorderTraversal, postorderTraversal, levelOrder};
