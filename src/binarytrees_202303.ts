@@ -57,6 +57,7 @@ function postorderTraversal(root: TreeNode | null, list: number[]=[]): number[] 
 
 // Binary Tree Level Order Traversal
 // Solution - Need to review
+// O(n**2) Time and space solution
 function levelOrder(root: TreeNode | null): number[][] {
     var list: number[][] = [];
     if (root) {
@@ -85,5 +86,26 @@ function levelOrder(root: TreeNode | null): number[][] {
     return list;
 };
 
+// Maximum Depth of a Binary Tree
+// Solved in 15 min
+// O(1) Time solution
+// O(n) Space solution
+function maxDepth(root: TreeNode | null, depth: number=1, cur_depth: number=1): number {
+    if (root) {
+        if (cur_depth > depth) {
+            depth++;
+        };
+        if (root.left) {
+            depth = maxDepth(root.left, depth, cur_depth+1);
+        };
+        if (root.right) {
+            depth = maxDepth(root.right, depth, cur_depth+1);
+        };
+        return depth;
+    } else {
+        return 0;
+    };
+};
 
-export {preorderTraversal, inorderTraversal, postorderTraversal, levelOrder};
+
+export {preorderTraversal, inorderTraversal, postorderTraversal, levelOrder, maxDepth};

@@ -25,7 +25,8 @@ import {
     preorderTraversal,
     inorderTraversal,
     postorderTraversal,
-    levelOrder
+    levelOrder, 
+    maxDepth
 } from './binarytrees_202303';
 import {
     reverseString,
@@ -502,6 +503,16 @@ lo1.right.right = new TreeNode(7);
 levelOrderTest(lo1);
 levelOrderTest(oTR2);
 levelOrderTest(null);
+thinLine();
+
+// Testing maxDepth
+function BTdepthTest(root: TreeNode | null): void {
+    var depth: number = maxDepth(root);
+    console.log(`The maximum depth of this list = ${depth}`);
+};
+
+BTdepthTest(lo1);
+BTdepthTest(null);
 
 
 // **** Recursion 1 Problems ****
