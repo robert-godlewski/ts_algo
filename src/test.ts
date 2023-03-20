@@ -26,7 +26,8 @@ import {
     inorderTraversal,
     postorderTraversal,
     levelOrder, 
-    maxDepth
+    maxDepth,
+    isSymmetric
 } from './binarytrees_202303';
 import {
     reverseString,
@@ -513,6 +514,36 @@ function BTdepthTest(root: TreeNode | null): void {
 
 BTdepthTest(lo1);
 BTdepthTest(null);
+thinLine();
+
+// Testing isSymmetric
+function symmetricTest(root: TreeNode | null): void {
+    var symmetric: boolean = isSymmetric(root);
+    var message: string = `Is the given tree starting with`;
+    if (root) {
+        message += ` ${root.val}`;
+    } else {
+        message += ` null`;
+    };
+    message += ` is symmetrical? ${symmetric}`;
+    console.log(message);
+}
+
+var symBT1 = new TreeNode(1);
+symBT1.left = new TreeNode(2);
+symBT1.left.left = new TreeNode(3);
+symBT1.left.right = new TreeNode(4);
+symBT1.right = new TreeNode(2);
+symBT1.right.left = new TreeNode(4);
+symBT1.right.right = new TreeNode(3);
+symmetricTest(symBT1);
+var symBT2 = new TreeNode(1);
+symBT2.left = new TreeNode(2);
+symBT2.left.right = new TreeNode(3);
+symBT2.right = new TreeNode(2);
+symBT2.right.right = new TreeNode(3);
+symmetricTest(symBT2);
+thinLine();
 
 
 // **** Recursion 1 Problems ****

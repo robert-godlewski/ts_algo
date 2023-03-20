@@ -107,5 +107,47 @@ function maxDepth(root: TreeNode | null, depth: number=1, cur_depth: number=1): 
     };
 };
 
+// Symmetric Tree
+// Solved in attempt solution - doesn't work
+function isSymmetric(root: TreeNode | null): boolean {
+    // preorder traverse through the right side
+    function preorderTraversalRight(root: TreeNode | null, list: number[]=[]): number[] {
+        if (root) {
+            list.push(root.val);
+            if (root.right) {
+                list = preorderTraversalRight(root.right, list);
+            };
+            if (root.left) {
+                list = preorderTraversalRight(root.left, list);
+            };
+        };
+        return list;
+    };
+    if (root) {
+        if (root.left && root.right) {
+            var l_list: number[] = preorderTraversal(root.left);
+            var r_list: number[] = preorderTraversalRight(root.right);
+            if (l_list == r_list) {
+                return true;
+            } else {
+                return false;
+            };
+        } else if (root.left || root.right) {
+            return false;
+        } else {
+            return true;
+        };
+    } else {
+        return false;
+    };
+};
 
-export {preorderTraversal, inorderTraversal, postorderTraversal, levelOrder, maxDepth};
+
+export {
+    preorderTraversal,
+    inorderTraversal,
+    postorderTraversal,
+    levelOrder,
+    maxDepth,
+    isSymmetric
+};
