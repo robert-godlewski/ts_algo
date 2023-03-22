@@ -108,26 +108,60 @@ function maxDepth(root: TreeNode | null, depth: number=1, cur_depth: number=1): 
 };
 
 // Symmetric Tree
-// Solved in attempt solution - doesn't work
+// Solved over 1hr
+// O(n) time and space solution
 function isSymmetric(root: TreeNode | null): boolean {
+    // preorder traverse through the left side
+    function preorderTraversalLeft(root: TreeNode | null, list: number[]=[]): number[] {
+        if (root) {
+            list.push(root.val);
+            if (root.left) {
+                list = preorderTraversalLeft(root.left, list);
+            } else {
+                // Need to push in anything as a null val
+                list.push(0);
+            };
+            if (root.right) {
+                list = preorderTraversalLeft(root.right, list);
+            } else {
+                // Need to push in anything as a null val
+                list.push(0);
+            };
+        };
+        return list;
+    };
+
     // preorder traverse through the right side
     function preorderTraversalRight(root: TreeNode | null, list: number[]=[]): number[] {
         if (root) {
             list.push(root.val);
             if (root.right) {
                 list = preorderTraversalRight(root.right, list);
+            } else {
+                // Need to push in anything as a null val
+                list.push(0);
             };
             if (root.left) {
                 list = preorderTraversalRight(root.left, list);
+            } else {
+                // Need to push in anything as a null val
+                list.push(0);
             };
         };
         return list;
     };
+
+    // Where the actual checking of the 2 lists starts
     if (root) {
         if (root.left && root.right) {
-            var l_list: number[] = preorderTraversal(root.left);
+            var l_list: number[] = preorderTraversalLeft(root.left);
             var r_list: number[] = preorderTraversalRight(root.right);
-            if (l_list == r_list) {
+            if (l_list.length == r_list.length) {
+                for (var i: number = 0; i < l_list.length; i++) {
+                    if (l_list[i] != r_list[i]) {
+                        return false;
+                    };
+                };
                 return true;
             } else {
                 return false;
