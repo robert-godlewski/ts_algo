@@ -27,7 +27,8 @@ import {
     postorderTraversal,
     levelOrder, 
     maxDepth,
-    isSymmetric
+    isSymmetric,
+    hasPathSum
 } from './binarytrees_202303';
 import {
     reverseString,
@@ -544,6 +545,28 @@ symBT2.right = new TreeNode(2);
 symBT2.right.right = new TreeNode(3);
 symmetricTest(symBT2);
 thinLine();
+
+// Testing hasPathSum
+function pathSumTest(root: TreeNode | null, targetSum: number): void {
+    var pathSumQ: boolean = hasPathSum(root, targetSum);
+    console.log(`Does this tree have a path sum? ${pathSumQ}`);
+};
+
+var compBT1 = new TreeNode(5);
+compBT1.left = new TreeNode(4);
+compBT1.left.left = new TreeNode(11);
+compBT1.left.left.left = new TreeNode(7);
+compBT1.left.left.right = new TreeNode(2);
+compBT1.right = new TreeNode(8);
+compBT1.right.left = new TreeNode(13);
+compBT1.right.right = new TreeNode(4);
+compBT1.right.right.right = new TreeNode(1);
+pathSumTest(compBT1, 22);
+var compBT2 = new TreeNode(1);
+compBT2.left = new TreeNode(2);
+compBT2.right = new TreeNode(3);
+pathSumTest(compBT2, 5);
+pathSumTest(null, 0);
 
 
 // **** Recursion 1 Problems ****

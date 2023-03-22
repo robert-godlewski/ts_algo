@@ -176,6 +176,26 @@ function isSymmetric(root: TreeNode | null): boolean {
     };
 };
 
+// Path Sum
+// Solved in 20 min
+// O(1) time solution
+// O(n) space solution
+function hasPathSum(root: TreeNode | null, targetSum: number): boolean {
+    var hasPath: boolean = false;
+    if (root) {
+        if (root.left) {
+            hasPath = hasPathSum(root.left, targetSum-root.val);
+        };
+        if (root.right && hasPath == false) {
+            hasPath = hasPathSum(root.right, targetSum-root.val);
+        };
+        if (root.val == targetSum && !root.left && !root.right) {
+            return true;
+        };
+    };
+    return hasPath;
+};
+
 
 export {
     preorderTraversal,
@@ -183,5 +203,6 @@ export {
     postorderTraversal,
     levelOrder,
     maxDepth,
-    isSymmetric
+    isSymmetric,
+    hasPathSum
 };
