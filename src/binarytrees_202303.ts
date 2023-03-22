@@ -1,8 +1,9 @@
 // Binary Tree algorithms solved in Mar 2023
+// Binary Search Tree algorithms solved in Mar 2023
 import {TreeNode} from "./BinaryTreeTools";
-import {ListNode} from "./LinkedListTools";
 import {LinkedQueue} from "./QueueStackTools";
 
+// Group from Binary Tree
 
 // Binary Tree Preorder Traversal
 // Solved in 15 min
@@ -197,12 +198,39 @@ function hasPathSum(root: TreeNode | null, targetSum: number): boolean {
 };
 
 
+// Group from Binary Search Tree
+
+// Validate Binary Search Tree
+// Returns true if root.left.val < root.val and root.right.val > root.val
+// Bad solution - doesn't work in leetcode for some reason
+function isValidBST(root: TreeNode | null, valid: boolean=false): boolean {
+    if (root) {
+        if (root.left && root.val > root.left.val) {
+            valid = isValidBST(root.left, true);
+        } else if (root.left) {
+            return false;
+        };
+        if (root.right && root.val < root.right.val) {
+            valid = isValidBST(root.right, true);
+        } else if (root.right) {
+            return false;
+        };
+        return valid;
+    };
+    // Defaults to false
+    return false;
+};
+
+
 export {
+    // Binary Tree Algorithms
     preorderTraversal,
     inorderTraversal,
     postorderTraversal,
     levelOrder,
     maxDepth,
     isSymmetric,
-    hasPathSum
+    hasPathSum,
+    // Binary Search Tree Algorithms
+    isValidBST
 };

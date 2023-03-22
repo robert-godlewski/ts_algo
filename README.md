@@ -7,11 +7,12 @@ Compile via root directory with: tsc
 /dist has all of the executable JavaScript files. (This is created automatically)
 
 # Am currently doing:
-Binary Trees
+Binary Search Tree
 
 # To come back to later:
 * Linked Lists
 * Queues and Stacks
+* Binary Trees
 * Hash Maps
 * Recursion
 

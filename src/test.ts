@@ -28,7 +28,8 @@ import {
     levelOrder, 
     maxDepth,
     isSymmetric,
-    hasPathSum
+    hasPathSum,
+    isValidBST
 } from './binarytrees_202303';
 import {
     reverseString,
@@ -567,6 +568,37 @@ compBT2.left = new TreeNode(2);
 compBT2.right = new TreeNode(3);
 pathSumTest(compBT2, 5);
 pathSumTest(null, 0);
+
+
+// **** Binary Search Tree Problems ****
+// Uses the same solutions from the binary trees for march
+thickLine();
+console.log('Binary Search Trees');
+thickLine();
+
+// Testing isValidBST
+function validBTtest(root: TreeNode | null): void {
+    var valid: boolean = isValidBST(root);
+    var message: string = `Is this binary tree starting with `
+    if (root) {
+        message += `${root.val}`
+    } else {
+        message += 'none'
+    }
+    message += ` a valid search tree? ${valid}`;
+    console.log(message);
+};
+
+var validBT1 = new TreeNode(2);
+validBT1.left = new TreeNode(1);
+validBT1.right = new TreeNode(3);
+validBTtest(validBT1);
+var validBT2 = new TreeNode(5);
+validBT2.left = new TreeNode(1);
+validBT2.right = new TreeNode(4);
+validBT2.right.left = new TreeNode(3);
+validBT2.right.right = new TreeNode(6);
+validBTtest(validBT2);
 
 
 // **** Recursion 1 Problems ****
