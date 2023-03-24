@@ -30,7 +30,8 @@ import {
     isSymmetric,
     hasPathSum,
     isValidBST,
-    searchBST
+    searchBST,
+    insertIntoBST
 } from './binarytrees_202303';
 import {
     reverseString,
@@ -609,7 +610,7 @@ function searchBSTtest(root: TreeNode | null, val: number): void {
     if (answer && root) {
         message += `found ${val} in (root) -> ${root.val} tree = ${answer.val}`;
     } else if (root) {
-        message += `not found ${val} in (root) -> ${root.val}] tree`;
+        message += `not found ${val} in (root) -> ${root.val} tree`;
     } else {
         message += `not been able to find ${val} in (root) -> null`;
     };
@@ -623,6 +624,27 @@ bst1.left.right = new TreeNode(3);
 bst1.right = new TreeNode(7);
 searchBSTtest(bst1, 2);
 searchBSTtest(bst1, 5);
+thinLine();
+
+// Testing insertIntoBST
+function insertBSTtest(root: TreeNode | null, val: number): void {
+    var answer: TreeNode | null = insertIntoBST(root, val);
+    var message: string = `Inserted ${val} into (root) -> `;
+    if (root) {
+        message += `${root.val}`;
+    } else if (!root && answer) {
+        message += `null => ${answer.val}`
+    };
+    message += ' tree'
+    console.log(message);
+};
+
+var ibst1 = new TreeNode(4);
+ibst1.left = new TreeNode(2);
+ibst1.left.left = new TreeNode(1);
+ibst1.left.right = new TreeNode(3);
+ibst1.right = new TreeNode(7);
+insertBSTtest(ibst1, 5);
 
 
 // **** Recursion 1 Problems ****

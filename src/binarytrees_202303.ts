@@ -241,6 +241,25 @@ function searchBST(root: TreeNode | null, val: number): TreeNode | null {
     };
 };
 
+// Insert into a Binary Search Tree
+// Solved in 20 min
+function insertIntoBST(root: TreeNode | null, val: number): TreeNode | null {
+    if (root) {
+        if (val < root.val && root.left) {
+            root.left = insertIntoBST(root.left, val);
+        } else if (val > root.val && root.right) {
+            root.right = insertIntoBST(root.right, val);
+        } else if (val < root.val) {
+            root.left = new TreeNode(val);
+        } else if (val > root.val) {
+            root.right = new TreeNode(val);
+        };
+    } else {
+        root = new TreeNode(val);
+    };
+    return root;
+};
+
 
 export {
     // Binary Tree Algorithms
@@ -253,5 +272,6 @@ export {
     hasPathSum,
     // Binary Search Tree Algorithms
     isValidBST,
-    searchBST
+    searchBST,
+    insertIntoBST
 };
