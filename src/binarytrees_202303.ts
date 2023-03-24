@@ -221,6 +221,26 @@ function isValidBST(root: TreeNode | null, valid: boolean=false): boolean {
     return false;
 };
 
+// Search in a Binary Search Tree
+// Solved in 20 min
+// O(1) time solution
+// O(n) space solution
+function searchBST(root: TreeNode | null, val: number): TreeNode | null {
+    if (root) {
+        var node: TreeNode | null = null;
+        if (root.val == val) {
+            return root;
+        } else if (root.val > val) {
+            node = searchBST(root.left, val);
+        } else if (root.val < val) {
+            node = searchBST(root.right, val);
+        };
+        return node;
+    } else {
+        return null;
+    };
+};
+
 
 export {
     // Binary Tree Algorithms
@@ -232,5 +252,6 @@ export {
     isSymmetric,
     hasPathSum,
     // Binary Search Tree Algorithms
-    isValidBST
+    isValidBST,
+    searchBST
 };

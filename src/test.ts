@@ -29,7 +29,8 @@ import {
     maxDepth,
     isSymmetric,
     hasPathSum,
-    isValidBST
+    isValidBST,
+    searchBST
 } from './binarytrees_202303';
 import {
     reverseString,
@@ -599,6 +600,29 @@ validBT2.right = new TreeNode(4);
 validBT2.right.left = new TreeNode(3);
 validBT2.right.right = new TreeNode(6);
 validBTtest(validBT2);
+thinLine();
+
+// Testing searchBST
+function searchBSTtest(root: TreeNode | null, val: number): void {
+    var answer: TreeNode | null = searchBST(root, val);
+    var message: string = 'We have ';
+    if (answer && root) {
+        message += `found ${val} in (root) -> ${root.val} tree = ${answer.val}`;
+    } else if (root) {
+        message += `not found ${val} in (root) -> ${root.val}] tree`;
+    } else {
+        message += `not been able to find ${val} in (root) -> null`;
+    };
+    console.log(message);
+};
+
+var bst1 = new TreeNode(4);
+bst1.left = new TreeNode(2);
+bst1.left.left = new TreeNode(1);
+bst1.left.right = new TreeNode(3);
+bst1.right = new TreeNode(7);
+searchBSTtest(bst1, 2);
+searchBSTtest(bst1, 5);
 
 
 // **** Recursion 1 Problems ****
