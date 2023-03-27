@@ -243,6 +243,8 @@ function searchBST(root: TreeNode | null, val: number): TreeNode | null {
 
 // Insert into a Binary Search Tree
 // Solved in 20 min
+// O(1) time solution
+// O(n) space solution
 function insertIntoBST(root: TreeNode | null, val: number): TreeNode | null {
     if (root) {
         if (val < root.val && root.left) {
@@ -260,6 +262,84 @@ function insertIntoBST(root: TreeNode | null, val: number): TreeNode | null {
     return root;
 };
 
+// Delete Node in BST
+// Bad solution - This doesn't actually do anything acording to leetcode
+function deleteNode(root: TreeNode | null, key: number): TreeNode | null {
+    if (root) {
+        var switched: boolean = false;
+        if (root.val == key) {
+            if (root.left && root.right) {
+                // 2 child case
+                // Returns the bottom left most node of the given routing
+                function findChildNode(root: TreeNode | null): TreeNode | null {
+                    if (root) {
+                        var node: TreeNode | null = null;
+                        if (root.left) {
+                            node = findChildNode(root.left);
+                        };
+                        if (root.right && !node) {
+                            node = findChildNode(root.right);
+                        };
+                        return node;
+                    };
+                    return root;
+                };
+                // Checks the validity if the given node is ok to replace the cur node
+                function validNode(node: TreeNode | null, cur: TreeNode | null): boolean {
+                    if (node && cur) {
+                        if (cur.left && cur.right) {
+                            if (node.val > cur.left.val && node.val <= cur.right.val) {
+                                return true;
+                            };
+                        };
+                    };
+                    return false;
+                };
+                // Actually swaps 2 nodes
+                function swapNodes(nodein: TreeNode | null, nodeout: TreeNode | null): TreeNode | null {
+                    if (nodein && nodeout) {
+                        nodein.left = nodeout.left;
+                        if (nodein != nodeout.right) {
+                            nodein.right = nodeout.right;
+                        };
+                    };
+                    return nodein;
+                };
+                var temp_node: TreeNode | null = findChildNode(root.right);
+                var val_temp: boolean = validNode(temp_node, root);
+                if (val_temp && temp_node) {
+                    root = swapNodes(temp_node, root);
+                    switched = true;
+                } else {
+                    temp_node = findChildNode(root.left.right);
+                    val_temp = validNode(temp_node, root);
+                    if (val_temp && temp_node) {
+                        root = swapNodes(temp_node, root);
+                        switched = true;
+                    };
+                };
+            } else if (root.right) {
+                // 1 child case on the right
+                return root.right;
+            } else if (root.left) {
+                // 1 child case on the left
+                return root.left;
+            } else {
+                // 0 child case
+                return null;
+            };
+        };
+        // Still finding the key
+        if (root && root.left && !switched) {
+            root.left = deleteNode(root.left, key);
+        };
+        if (root && root.right && !switched) {
+            root.right = deleteNode(root.right, key);
+        };
+    };
+    return root;
+};
+
 
 export {
     // Binary Tree Algorithms
@@ -273,5 +353,6 @@ export {
     // Binary Search Tree Algorithms
     isValidBST,
     searchBST,
-    insertIntoBST
+    insertIntoBST,
+    deleteNode
 };

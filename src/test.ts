@@ -31,7 +31,8 @@ import {
     hasPathSum,
     isValidBST,
     searchBST,
-    insertIntoBST
+    insertIntoBST,
+    deleteNode
 } from './binarytrees_202303';
 import {
     reverseString,
@@ -645,6 +646,23 @@ ibst1.left.left = new TreeNode(1);
 ibst1.left.right = new TreeNode(3);
 ibst1.right = new TreeNode(7);
 insertBSTtest(ibst1, 5);
+thinLine();
+
+// Testing deleteNode
+function deleteBSTtest(root: TreeNode | null, key: number): void {
+    var answer: TreeNode | null = deleteNode(root, key);
+    var message: string = `Delete ${key} from (root) -> `;
+    //
+}
+var dbst1 = new TreeNode(5);
+dbst1.left = new TreeNode(3);
+dbst1.left.left = new TreeNode(2);
+dbst1.left.right = new TreeNode(4);
+dbst1.right = new TreeNode(6);
+dbst1.right.right = new TreeNode(7);
+deleteBSTtest(dbst1, 3);
+deleteBSTtest(dbst1, 0);
+deleteBSTtest(null, 0);
 
 
 // **** Recursion 1 Problems ****
