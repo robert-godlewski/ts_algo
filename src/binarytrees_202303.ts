@@ -264,7 +264,7 @@ function insertIntoBST(root: TreeNode | null, val: number): TreeNode | null {
 
 // Delete Node in BST
 // Bad solution - This doesn't actually do anything acording to leetcode
-function deleteNode(root: TreeNode | null, key: number): TreeNode | null {
+function deleteNodeOLD(root: TreeNode | null, key: number): TreeNode | null {
     if (root) {
         var switched: boolean = false;
         if (root.val == key) {
@@ -334,6 +334,46 @@ function deleteNode(root: TreeNode | null, key: number): TreeNode | null {
             root.left = deleteNode(root.left, key);
         };
         if (root && root.right && !switched) {
+            root.right = deleteNode(root.right, key);
+        };
+    };
+    return root;
+};
+
+// Delete Node in BST
+// O(1) best time solution
+// O(nlogn) worst time solution
+// O(nlogn) space solution
+// This is still a bad solution in leetcode
+function deleteNode(root: TreeNode | null, key: number): TreeNode | null {
+    function findLeaf(root: TreeNode): TreeNode {
+        while (root && root.left) {
+            root = root.left
+        };
+        return root;
+    };
+    if (root) {
+        if (root.val == key) {
+            if (!root.left && !root.right) {
+                return null;
+            } else if (root.left && !root.right) {
+                return root.left;
+            } else if (root.right && !root.left) {
+                return root.right;
+            } else {
+                var leaf: TreeNode = root;
+                if (root.right) {
+                    // This will always be true
+                    leaf = findLeaf(root.right);
+                    root.right = deleteNode(root.right, leaf.val)
+                    leaf.left = root.left;
+                    leaf.right = root.right;
+                    root = leaf;
+                };
+            };
+        } else if (root.left && root.val < key) {
+            root.left = deleteNode(root.left, key);
+        } else if (root.right && root.val > key) {
             root.right = deleteNode(root.right, key);
         };
     };
