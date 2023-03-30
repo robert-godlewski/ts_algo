@@ -256,21 +256,16 @@ class SLL extends LL {
 // Returning a string from a given Linked list node
 function printLL(head: ListNode | null): string {
     var cur: ListNode | null = head;
+    var statement: string = '(head) -> ';
     if (cur) {
-        var statement: string = '[';
         while (cur) {
             statement += cur.val.toString();
-            if (cur.next) {
-                statement += ', ';
-            } else {
-                statement += ']';
-            };
+            statement += ' -> ';
             cur = cur.next;
         };
-        return statement;
-    } else {
-        return '[]';
     };
+    statement += '(tail)';
+    return statement;
 };
 
 

@@ -36,7 +36,7 @@ import {
 } from './binarytrees_202303';
 import {
     reverseString,
-    //swapPairs,
+    swapPairs,
     reverseListRecursive
 } from './recursion1_202302';
 
@@ -648,21 +648,21 @@ ibst1.right = new TreeNode(7);
 insertBSTtest(ibst1, 5);
 thinLine();
 
-// Testing deleteNode
-function deleteBSTtest(root: TreeNode | null, key: number): void {
-    var answer: TreeNode | null = deleteNode(root, key);
-    var message: string = `Delete ${key} from (root) -> `;
-    //
-}
-var dbst1 = new TreeNode(5);
-dbst1.left = new TreeNode(3);
-dbst1.left.left = new TreeNode(2);
-dbst1.left.right = new TreeNode(4);
-dbst1.right = new TreeNode(6);
-dbst1.right.right = new TreeNode(7);
-deleteBSTtest(dbst1, 3);
-deleteBSTtest(dbst1, 0);
-deleteBSTtest(null, 0);
+// Testing deleteNode - Doesn't work in leetcode
+// function deleteBSTtest(root: TreeNode | null, key: number): void {
+//     var answer: TreeNode | null = deleteNode(root, key);
+//     var message: string = `Delete ${key} from (root) -> `;
+//     //
+// }
+// var dbst1 = new TreeNode(5);
+// dbst1.left = new TreeNode(3);
+// dbst1.left.left = new TreeNode(2);
+// dbst1.left.right = new TreeNode(4);
+// dbst1.right = new TreeNode(6);
+// dbst1.right.right = new TreeNode(7);
+// deleteBSTtest(dbst1, 3);
+// deleteBSTtest(dbst1, 0);
+// deleteBSTtest(null, 0);
 
 
 // **** Recursion 1 Problems ****
@@ -682,21 +682,22 @@ reverseStringTest(["H","a","n","n","a","h"]);
 thinLine();
 
 // Testing swapPairs - Bad solution
-// function swapPairsTest(head: ListNode | null): void {
-//     console.log('Swaping the nodes of this list:');
-//     printLL(head);
-//     var swapped: ListNode | null = swapPairs(head);
-//     printLL(swapped);
-// };
-// var swapList = new SLL();
-// swapList.addAtHead(1);
-// swapList.addAtTail(2);
-// swapList.addAtTail(3);
-// swapList.addAtTail(4);
-// swapPairsTest(swapList.head);
-// swapPairsTest(null);
-// var singleNode = new ListNode(1);
-// swapPairsTest(singleNode);
+function swapPairsTest(head: ListNode | null): void {
+    console.log('Swaping the nodes of this list:');
+    console.log(printLL(head));
+    var swapped: ListNode | null = swapPairs(head);
+    console.log(printLL(swapped));
+};
+var swapList = new SLL();
+swapList.addAtHead(1);
+swapList.addAtTail(2);
+swapList.addAtTail(3);
+swapList.addAtTail(4);
+swapPairsTest(swapList.head);
+swapPairsTest(null);
+var singleNode = new ListNode(1);
+swapPairsTest(singleNode);
+thinLine();
 
 // Testing reverseListRecursive
 function reverseListRecTest(head: ListNode | null): void {

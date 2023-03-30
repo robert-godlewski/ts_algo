@@ -20,34 +20,30 @@ function reverseString(s: string[]): void {
     console.log(`Reversed String = [${s}]`);
 };
 
-// Swap Nodes in Pairs - Bad solution
-// Not returning the right data for some reason took over an hour to get to here
-function swapPairs(head: ListNode | null, prev: ListNode | null = null): ListNode | null {
-    if (head) {
+// Swap Nodes in Pairs
+// Solved in 20 min
+// O(1) time solution
+// O(n) space solution
+function swapPairs(head: ListNode | null, prev: ListNode | null=null): ListNode | null {
+    if (head && head.next) {
         var cur: ListNode | null = head;
         var next: ListNode | null = cur.next;
         if (prev) {
             prev.next = next;
         };
-        if (next) {
+        if (cur && next) {
             cur.next = next.next;
             next.next = cur;
         };
-        cur = swapPairs(head=cur.next, prev=cur);
-        //head = next;
-        if (prev) {
-            return prev;
-        } else {
-            return next;
+        if (cur.next) {
+            cur.next = swapPairs(cur.next, cur);
         };
-    } else if (prev) {
-        return prev;
-    } else {
-        return null;
+        head = next;
     };
+    return head;
 };
 
-// Revrse Linked List
+// Reverse Linked List
 // Took about 45 min to solve
 // O(1) time solution
 // O(n) space solution
