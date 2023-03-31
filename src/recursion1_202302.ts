@@ -61,5 +61,31 @@ function reverseListRecursive(head: ListNode | null, prev: ListNode | null = nul
     return head;
 };
 
+// Pascal's Triangle II
+// Solved in 20 min
+// O(nlogn) solution
+// Works but excedes the time limit
+function pascalCal(row: number, col: number): number {
+    if (col < 0 || row < 0) {
+        // Don't want to do anything if it gets to this
+        return 0;
+    } else if (col == 0 || col == row+1) {
+        // This is the edge of the triangle
+        return 1;
+    } else {
+        // pascal formula
+        return pascalCal(row-1, col-1) + pascalCal(row-1, col);
+    };
+};
 
-export {reverseString, swapPairs, reverseListRecursive};
+function getRow(rowIndex: number): number[] {
+    var list: number[] = [];
+    for (var i: number = 0; i < rowIndex+1; i++) {
+        var num: number = pascalCal(rowIndex, i);
+        list.push(num);
+    };
+    return list;
+};
+
+
+export {reverseString, swapPairs, reverseListRecursive, getRow};

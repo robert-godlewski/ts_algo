@@ -37,7 +37,8 @@ import {
 import {
     reverseString,
     swapPairs,
-    reverseListRecursive
+    reverseListRecursive,
+    getRow
 } from './recursion1_202302';
 
 
@@ -719,3 +720,13 @@ revSLLRec2.addAtTail(2);
 reverseListRecTest(revSLLRec2.head);
 reverseListRecTest(null);
 thinLine();
+
+// Testing getRow
+function pascalRowTest(row: number): void {
+    var list: number[] = getRow(row);
+    console.log(`Getting the pascal triangle for row ${row} = [${list}]`);
+}
+
+pascalRowTest(3);
+pascalRowTest(0);
+pascalRowTest(1);
