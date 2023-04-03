@@ -38,7 +38,8 @@ import {
     reverseString,
     swapPairs,
     reverseListRecursive,
-    getRow
+    getRow,
+    fib
 } from './recursion1_202302';
 
 
@@ -730,3 +731,16 @@ function pascalRowTest(row: number): void {
 pascalRowTest(3);
 pascalRowTest(0);
 pascalRowTest(1);
+thinLine();
+
+// Testing fib
+function fibonTest(n: number): void {
+    var answer: number = fib(n);
+    console.log(`The fibonacci number of ${n} = ${answer}`);
+};
+
+fibonTest(0);
+fibonTest(1);
+fibonTest(2);
+fibonTest(3);
+fibonTest(4);

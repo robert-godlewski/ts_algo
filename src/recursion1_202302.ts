@@ -87,5 +87,19 @@ function getRow(rowIndex: number): number[] {
     return list;
 };
 
+// Fibonacci Number
+// Solved in 5 min
+// O(1) time solution
+// O(n) space solution
+function fib(n: number): number {
+    if (n <= 0) {
+        return 0;
+    } else if (n == 1) {
+        return 1;
+    } else {
+        return fib(n-1) + fib(n-2);
+    };
+};
 
-export {reverseString, swapPairs, reverseListRecursive, getRow};
+
+export {reverseString, swapPairs, reverseListRecursive, getRow, fib};
