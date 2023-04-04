@@ -101,5 +101,25 @@ function fib(n: number): number {
     };
 };
 
+// Climbing Stairs
+// Similar to the fibonacci number
+// Solved in 20 min - Bad solution according to leetcode, not sure why though
+function climbStairs(n: number): number {
+    if (n <= 0) {
+        return 0;
+    } else if (n <= 3) {
+        return n;
+    } else {
+        return climbStairs(n-1) + climbStairs(n-2);
+    };
+};
 
-export {reverseString, swapPairs, reverseListRecursive, getRow, fib};
+
+export {
+    reverseString, 
+    swapPairs, 
+    reverseListRecursive, 
+    getRow, 
+    fib,
+    climbStairs
+};

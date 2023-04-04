@@ -4,7 +4,8 @@ import {
     swapPairs,
     reverseListRecursive,
     getRow,
-    fib
+    fib,
+    climbStairs
 } from './recursion1_202302';
 
 // Needed classes to run these
@@ -47,10 +48,17 @@ function fibonTest(n: number): void {
     console.log(`The fibonacci number of ${n} = ${answer}`);
 };
 
+// Testing climbStairs
+function climbStairTest(n: number): void {
+    var answer: number = climbStairs(n);
+    console.log(`There are ${answer} number of ways to climb ${n} stairs`);
+};
+
 export {
     reverseStringTest,
     swapPairsTest,
     reverseListRecTest,
     pascalRowTest,
-    fibonTest
+    fibonTest,
+    climbStairTest
 };

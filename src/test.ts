@@ -41,7 +41,8 @@ import {
     swapPairsTest,
     reverseListRecTest,
     pascalRowTest,
-    fibonTest
+    fibonTest,
+    climbStairTest
 } from './recursive1_tests';
 
 
@@ -475,3 +476,9 @@ fibonTest(1);
 fibonTest(2);
 fibonTest(3);
 fibonTest(4);
+thinLine();
+// Testing climbStairs
+climbStairTest(2);
+climbStairTest(3);
+climbStairTest(4); //expecting 5
+climbStairTest(10); //expecting 89
