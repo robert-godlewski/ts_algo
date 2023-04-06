@@ -5,7 +5,8 @@ import {
     reverseListRecursive,
     getRow,
     fib,
-    climbStairs
+    climbStairs,
+    myPow
 } from './recursion1_202302';
 
 // Needed classes to run these
@@ -54,11 +55,18 @@ function climbStairTest(n: number): void {
     console.log(`There are ${answer} number of ways to climb ${n} stairs`);
 };
 
+// Testing myPow
+function powersTest(x: number, n: number): void {
+    var answer: number = myPow(x, n);
+    console.log(`${x} to the ${n} power = ${answer}`);
+};
+
 export {
     reverseStringTest,
     swapPairsTest,
     reverseListRecTest,
     pascalRowTest,
     fibonTest,
-    climbStairTest
+    climbStairTest,
+    powersTest
 };

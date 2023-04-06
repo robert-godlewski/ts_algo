@@ -42,7 +42,8 @@ import {
     reverseListRecTest,
     pascalRowTest,
     fibonTest,
-    climbStairTest
+    climbStairTest,
+    powersTest
 } from './recursive1_tests';
 
 
@@ -482,3 +483,9 @@ climbStairTest(2);
 climbStairTest(3);
 climbStairTest(4); //expecting 5
 climbStairTest(10); //expecting 89
+thinLine();
+// Testing powersTest
+powersTest(2, 10);
+powersTest(2.1, 3);
+powersTest(2, -2);
+powersTest(8.95371, -1);

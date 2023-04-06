@@ -114,6 +114,29 @@ function climbStairs(n: number): number {
     };
 };
 
+// Power where x is any number and n is the power to raise x by
+// Solved in 5 min
+// O(n) space solution
+// O(1) time solution
+function myPowRecursive(x: number, n: number): number {
+    if (n == 1) {
+        return x;
+    } else if (n == 0) {
+        return 1;
+    } else if (n > 1) {
+        return myPow(x, n-1) * x;
+    } else {
+        // n < 0
+        n *= -1;
+        return 1 / myPow(x, n);
+    };
+};
+
+// O(1) time and space solution
+function myPow(x: number, n:number): number {
+    return x**n;
+};
+
 
 export {
     reverseString, 
@@ -121,5 +144,6 @@ export {
     reverseListRecursive, 
     getRow, 
     fib,
-    climbStairs
+    climbStairs,
+    myPow
 };
