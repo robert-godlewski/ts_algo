@@ -6,7 +6,8 @@ import {
     getRow,
     fib,
     climbStairs,
-    myPow
+    myPow,
+    mergeTwoLists
 } from './recursion1_202302';
 
 // Needed classes to run these
@@ -61,6 +62,14 @@ function powersTest(x: number, n: number): void {
     console.log(`${x} to the ${n} power = ${answer}`);
 };
 
+// Testing mergeTwoLists
+function mergeTwoListsTest(list1: ListNode | null, list2: ListNode | null): void {
+    console.log(`The first list = ${printLL(list1)}`);
+    console.log(`The second list = ${printLL(list2)}`);
+    var answer: ListNode | null = mergeTwoLists(list1, list2);
+    console.log(`The merged list of 1 and 2 = ${printLL(answer)}`);
+}
+
 export {
     reverseStringTest,
     swapPairsTest,
@@ -68,5 +77,6 @@ export {
     pascalRowTest,
     fibonTest,
     climbStairTest,
-    powersTest
+    powersTest,
+    mergeTwoListsTest
 };

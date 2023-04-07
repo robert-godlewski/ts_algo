@@ -137,6 +137,31 @@ function myPow(x: number, n:number): number {
     return x**n;
 };
 
+// Merging 2 sorted lists
+// Solved in 30 min -> Bad answer
+function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
+    if (!list1 && !list2) {
+        return null
+    } else if (!list2) {
+        return list1;
+    } else if (!list1) {
+        return list2;
+    } else {
+        var temp: ListNode | null = null;
+        if (list1.val <= list2.val) {
+            temp = list1.next;
+            list2 = mergeTwoLists(temp, list2);
+            list1.next = list2;
+            return list1;
+        } else {
+            temp = list2.next;
+            list1 = mergeTwoLists(list1, temp);
+            list2.next = list1;
+            return list2;
+        };
+    };
+};
+
 
 export {
     reverseString, 
@@ -145,5 +170,6 @@ export {
     getRow, 
     fib,
     climbStairs,
-    myPow
+    myPow,
+    mergeTwoLists
 };

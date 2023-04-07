@@ -43,7 +43,8 @@ import {
     pascalRowTest,
     fibonTest,
     climbStairTest,
-    powersTest
+    powersTest,
+    mergeTwoListsTest
 } from './recursive1_tests';
 
 
@@ -489,3 +490,14 @@ powersTest(2, 10);
 powersTest(2.1, 3);
 powersTest(2, -2);
 powersTest(8.95371, -1);
+// Testing mergeTwoListsTest
+var mergList1 = new ListNode(1);
+mergList1.next = new ListNode(2);
+mergList1.next.next = new ListNode(4);
+var mergList2 = new ListNode(1);
+mergList2.next = new ListNode(3);
+mergList2.next.next = new ListNode(4);
+mergeTwoListsTest(mergList1, mergList2);
+mergeTwoListsTest(null, null);
+var mergList3 = new ListNode(0)
+mergeTwoListsTest(null, mergList3);
