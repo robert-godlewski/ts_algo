@@ -1,4 +1,4 @@
-// Using code solutions
+// Using code solutions - fix below to simplify the code
 import {
     runningSumTest,
     maxWealthTest,
@@ -46,6 +46,10 @@ import {
     powersTest,
     mergeTwoListsTest
 } from './recursive1_tests';
+// This algorithm run is ok
+import {
+    search_template_1
+} from './binarysearch_tests';
 
 
 // Tools needed to run these tests
@@ -501,3 +505,10 @@ mergeTwoListsTest(mergList1, mergList2);
 mergeTwoListsTest(null, null);
 var mergList3 = new ListNode(0)
 mergeTwoListsTest(null, mergList3);
+
+
+// *************Binary Search Tests**************
+thickLine();
+console.log('Binary Search Practice:')
+thickLine();
+search_template_1();
