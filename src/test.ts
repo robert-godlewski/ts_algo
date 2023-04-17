@@ -48,7 +48,8 @@ import {
 } from './recursive1_tests';
 // This algorithm run is ok
 import {
-    search_template_1
+    search_template_1,
+    find_peak_index
 } from './binarysearch_tests';
 
 
@@ -512,3 +513,5 @@ thickLine();
 console.log('Binary Search Practice:')
 thickLine();
 search_template_1();
+thinLine();
+find_peak_index();
