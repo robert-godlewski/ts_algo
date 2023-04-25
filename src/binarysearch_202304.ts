@@ -3,12 +3,6 @@
 // Solved in over 30 min
 // O(1) time solution
 // O(n) space solution
-function testSearch1(nums: number[], target: number): void {
-    var answer: number = search1(nums, target);
-    console.log(`What index is ${target} in [${nums}]? ${answer}`);
-};
-
-// The original name is just search without the 1
 function search1(nums: number[], target: number, index: number=0): number {
     if (nums.length == 0 || index == nums.length) {
         return -1;
@@ -21,10 +15,6 @@ function search1(nums: number[], target: number, index: number=0): number {
 
 // Find Peak Element
 // Solved in 1:30
-function testFindPeakElement(nums: number[]): void {
-    var answer: number = findPeakElement(nums);
-    console.log(`The index of the peak number in this list [${nums}] = ${answer}`);
-};
 
 // Iritive Solution
 // Solved in 10 min
@@ -80,6 +70,6 @@ function findPeakElement(nums: number[]): number {
 };
 
 export {
-    testSearch1,
-    testFindPeakElement
+    search1,
+    findPeakElement
 };

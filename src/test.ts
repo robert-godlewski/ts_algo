@@ -40,10 +40,10 @@ import {
     reverseStringTest,
     swapPairsTest,
     reverseListRecTest,
-    pascalRowTest,
-    fibonTest,
-    climbStairTest,
-    powersTest,
+    pascalRowTests,
+    fibonTests,
+    climbStairTests,
+    powersTests,
     mergeTwoListsTest
 } from './recursive1_tests';
 // This algorithm run is ok
@@ -439,76 +439,28 @@ thinLine();
 // deleteBSTtest(null, 0);
 
 
-// **** Recursion 1 Problems ****
+// **** Recursion 1 Tests ****
 thickLine();
 console.log('Recursion Practice:')
 thickLine();
-// Testing reverseString
-reverseStringTest(["h","e","l","l","o"]);
-reverseStringTest(["H","a","n","n","a","h"]);
+reverseStringTest();
 thinLine();
-// Testing swapPairs - Bad solution
-var swapList = new SLL();
-swapList.addAtHead(1);
-swapList.addAtTail(2);
-swapList.addAtTail(3);
-swapList.addAtTail(4);
-swapPairsTest(swapList.head);
-swapPairsTest(null);
-var singleNode = new ListNode(1);
-swapPairsTest(singleNode);
+swapPairsTest();
 thinLine();
-// Testing reverseListRecursive
-var revSLLRec1 = new SLL();
-revSLLRec1.addAtHead(1);
-revSLLRec1.addAtTail(2);
-revSLLRec1.addAtTail(3);
-revSLLRec1.addAtTail(4);
-revSLLRec1.addAtTail(5);
-reverseListRecTest(revSLLRec1.head);
-var revSLLRec2 = new SLL();
-revSLLRec2.addAtHead(1);
-revSLLRec2.addAtTail(2);
-reverseListRecTest(revSLLRec2.head);
-reverseListRecTest(null);
+reverseListRecTest()
 thinLine();
-// Testing getRow
-pascalRowTest(3);
-pascalRowTest(0);
-pascalRowTest(1);
+pascalRowTests();
 thinLine();
-// Testing fib
-fibonTest(0);
-fibonTest(1);
-fibonTest(2);
-fibonTest(3);
-fibonTest(4);
+fibonTests();
 thinLine();
-// Testing climbStairs
-climbStairTest(2);
-climbStairTest(3);
-climbStairTest(4); //expecting 5
-climbStairTest(10); //expecting 89
+climbStairTests();
 thinLine();
-// Testing powersTest
-powersTest(2, 10);
-powersTest(2.1, 3);
-powersTest(2, -2);
-powersTest(8.95371, -1);
-// Testing mergeTwoListsTest
-var mergList1 = new ListNode(1);
-mergList1.next = new ListNode(2);
-mergList1.next.next = new ListNode(4);
-var mergList2 = new ListNode(1);
-mergList2.next = new ListNode(3);
-mergList2.next.next = new ListNode(4);
-mergeTwoListsTest(mergList1, mergList2);
-mergeTwoListsTest(null, null);
-var mergList3 = new ListNode(0)
-mergeTwoListsTest(null, mergList3);
+powersTests();
+thinLine();
+mergeTwoListsTest();
 
 
-// *************Binary Search Tests**************
+// ************* Binary Search Tests **************
 thickLine();
 console.log('Binary Search Practice:')
 thickLine();
