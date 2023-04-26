@@ -128,35 +128,75 @@ function bucketSort(arr: number[]): number[] {
     return arr;
 };
 
-// Need to build out and test
-// O(n+k) space complexity
-// O(nk) time complexity
-function radixSort(arr: number[]): number[] {
-    // need to add code here
-    return arr;
+// Used to help with Counting and Radix Sorting Algorithms as a first step
+// O(1) space complexity
+// O(n) time complexity
+function findMaxNum(arr: number[]): number {
+    // Find the maximum number in arr
+    var maxNum: number = arr[0];
+    for (var i: number = 1; i < arr.length; i++) {
+        if (arr[i] > maxNum) {
+            maxNum = arr[i];
+        };
+    };
+    return maxNum;
 };
 
-// Need to build out and test
-// O(k) space complexity
-// O(n+k) time complexity
-function countingSort(arr: number[], maxNum: number=99): number[] {
+// Used to help with sizing a counter array for Counting and Radix Sorting Algorithms as a second step
+function counterArr(size: number): number[] {
     var counts: number[] = [];
-    for (var i: number = 0; i <= maxNum; i++) {
+    for (var i: number = 0; i <= size; i++) {
         counts.push(0);
     };
+    return counts;
+};
+
+// Need to test
+// O(k) space complexity
+// O(n+k) time complexity
+function countingSort(arr: number[]): number[] {
+    var maxNum: number = findMaxNum(arr);
+    // Setup a counts to keep track of the values of the number array starting with 0 in each index and increment when we find one.
+    var counts: number[] = counterArr(maxNum);
     var i: number = 0;
     while (i < arr.length) {
         counts[arr[i]]++;
         i++;
     };
-    var c: number = maxNum;
+    // Replace the values in arr based off of the number of items in each index of counts and decrement untill each place is 0
     while (i >= 0) {
         i--;
-        arr[i] = c;
-        if (counts[c] == 0) {
-            c--;
+        if (counts[counts.length-1] == 0) {
+            counts.pop();
+            i++;
+        } else {
+            arr[i] = counts.length-1;
         };
-    }
+    };
+    return arr;
+};
+
+// Need to build out and test - Does not work yet!
+// O(n+k) space complexity
+// O(nk) time complexity
+function radixSort(arr: number[]): number[] {
+    // Find the most significant digit in each number in arr
+    var maxSigD: number = 1;
+    for (var i: number = 0; i < arr.length; i++) {
+        var temp: string = arr[i].toString();
+        if (maxSigD < temp.length) {
+            maxSigD = temp.length;
+        };
+    };
+    // count sort each and decrement - Stuck here
+    // function specialCountSort(arr: number[], maxSigD: number, sigDiff: number): number[] {
+    //     var counts: number[] = counterArr(sigDiff);
+    //     var i: number = 0;
+    //     while (i < arr.length) {
+    //         var tempStr: string = arr[i].toString();
+    //     }
+    // }
+    // arr = specialCountSort(arr, maxSigD, maxSigD)
     return arr;
 };
 
@@ -165,5 +205,6 @@ export {
     selectionSort,
     insertionSort,
     mergeSort,
-    countingSort
+    countingSort,
+    radixSort
 };
