@@ -63,6 +63,28 @@ function insertionSort(arr: number[]): number[] {
 };
 
 // Need to test
+// O(1) space complexity
+// O(n logn) time complexity (Best case)
+// O(n (logn)**2) time complexity (average case)
+function shellSort(arr: number[]): number[] {
+    if (arr.length > 1) {
+        var gap: number = arr.length/2;
+        gap = Math.trunc(gap);
+        while (gap > 0) {
+            var temp: number = arr[gap];
+            for (var i: number = gap; i < arr.length; i++) {
+                if (i >= gap && temp < arr[i-gap]) {
+                    arr = swap(arr, i, i-gap);
+                };
+                temp = arr[i];
+            };
+            gap /= 2;
+        };
+    };
+    return arr;
+}
+
+// Need to test
 // O(n) space complexity
 // O(n logn) time complexity
 function mergeSort(arr: number[]): number[] {
@@ -204,6 +226,7 @@ export {
     bubbleSort,
     selectionSort,
     insertionSort,
+    shellSort,
     mergeSort,
     countingSort,
     radixSort
