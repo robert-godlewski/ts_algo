@@ -7,7 +7,7 @@ Compile via root directory with: tsc
 /dist has all of the executable JavaScript files. (This is created automatically)
 
 # Am currently doing:
-Binary Search
+Trie
 
 # To come back to later:
 * Linked Lists
@@ -15,6 +15,7 @@ Binary Search
 * Binary Trees
 * Hash Maps
 * Recursion
+* Binary Search
 
 # Need to do:
 General road map taken from LeetCode
@@ -23,16 +24,16 @@ General road map taken from LeetCode
 Data Stuctures:
 * Arrays - Comfortable with, ok to skip for now
 * Hash Tables - Need more practice
-* Binary Trees
-* Queues and Stacks
+* Binary Trees - Need more practice
+* Queues and Stacks - Need more practice
 * Sets
 * Heaps
 * Tries
 * Graphs
 
 Algorithms:
-* Recursion
+* Recursion - Comfortable with, ok to skip for now
 * Bit Arithmetic
-* Binary Search
-* Sorting Algorithms
+* Binary Search - Ok with
+* Sorting Algorithms - Ok with
 * Dynamic Programming
