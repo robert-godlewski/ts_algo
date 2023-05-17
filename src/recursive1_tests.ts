@@ -1,4 +1,4 @@
-// Runs the leetcode recursion problems
+// Runs the leetcode recursion 1 problems
 import {
     reverseString,
     swapPairs,

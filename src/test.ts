@@ -46,11 +46,14 @@ import {
     powersTests,
     mergeTwoListsTest
 } from './recursive1_tests';
-// This algorithm run is ok
+// These algorithm run tests are ok
 import {
     search_template_1,
     find_peak_index
 } from './binarysearch_tests';
+import {
+    mergeSortArrayTest
+} from './recursive2_tests';
 
 
 // Tools needed to run these tests
@@ -441,13 +444,13 @@ thinLine();
 
 // **** Recursion 1 Tests ****
 thickLine();
-console.log('Recursion Practice:')
+console.log('Recursion Practice 1:');
 thickLine();
 reverseStringTest();
 thinLine();
 swapPairsTest();
 thinLine();
-reverseListRecTest()
+reverseListRecTest();
 thinLine();
 pascalRowTests();
 thinLine();
@@ -467,3 +470,9 @@ thickLine();
 search_template_1();
 thinLine();
 find_peak_index();
+
+// *************** Recursion 2 Tests *************
+thickLine();
+console.log('Recursion Practice 2:');
+thickLine();
+mergeSortArrayTest();
