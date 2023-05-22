@@ -52,7 +52,8 @@ import {
     find_peak_index
 } from './binarysearch_tests';
 import {
-    mergeSortArrayTest
+    mergeSortArrayTest,
+    validBSTtests
 } from './recursive2_tests';
 
 
@@ -476,3 +477,5 @@ thickLine();
 console.log('Recursion Practice 2:');
 thickLine();
 mergeSortArrayTest();
+thinLine();
+validBSTtests();
