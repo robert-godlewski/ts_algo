@@ -53,7 +53,8 @@ import {
 } from './binarysearch_tests';
 import {
     mergeSortArrayTest,
-    validBSTtests
+    validBSTtests,
+    matrixSearchTests
 } from './recursive2_tests';
 
 
@@ -479,3 +480,5 @@ thickLine();
 mergeSortArrayTest();
 thinLine();
 validBSTtests();
+thinLine();
+matrixSearchTests();

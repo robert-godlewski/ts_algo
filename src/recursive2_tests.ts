@@ -2,7 +2,8 @@
 // Solution files
 import {
     sortArray,
-    isValidBST
+    isValidBST,
+    searchMatrix
 } from './recursive2_202306';
 
 // Needed tools
@@ -53,8 +54,26 @@ function validBSTtests(): void {
     validBSTtest(bst3);
 };
 
+// Testing searchMatrix
+function matrixSearchTests(): void {
+    function test(matrix: number[][], target: number) {
+        var answer: boolean = searchMatrix(matrix, target);
+        console.log(`Can we find ${target} in [${matrix}]? ${answer}`);
+    };
+    var matrix: number[][] = [
+        [1,4,7,11,15],
+        [2,5,8,12,19],
+        [3,6,9,16,22],
+        [10,13,14,17,24],
+        [18,21,23,26,30]
+    ];
+    test(matrix, 5);
+    test(matrix, 20);
+};
+
 
 export {
     mergeSortArrayTest,
-    validBSTtests
+    validBSTtests,
+    matrixSearchTests
 };

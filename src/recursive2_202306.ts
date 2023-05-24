@@ -62,9 +62,49 @@ function isValidBST(root: TreeNode | null): boolean {
     return validate(root);
 };
 
-
+// Search 2D Matrix 2
+// Bad solution - took over 1 hr
+function searchMatrix(matrix: number[][], target: number): boolean {
+    function search(matrix: number[][], target: number, pivot_h: number, pivot_w: number): boolean {
+        var is_found: boolean = false;
+        if (pivot_h < 0 || pivot_w < 0 || pivot_h >= matrix.length || pivot_w >= matrix[0].length) {
+            is_found = false;
+        };
+        is_found = checkAround(matrix, target, pivot_h, pivot_w);
+        if (is_found == false) {
+            if (target < matrix[pivot_h][pivot_w]) {
+                // search top left
+                is_found = search(matrix, target, Math.ceil(pivot_h/2), Math.ceil(pivot_w/2));
+            } else if (target > matrix[pivot_h][pivot_w]) {
+                // search bottom right
+                is_found = search(matrix, target, matrix.length-Math.ceil(pivot_h/2), matrix[0].length-Math.ceil(pivot_w/2));
+            };
+        };
+        return is_found;
+    };
+    function checkAround(matrix: number[][], target: number, pivot_h: number, pivot_w: number): boolean {
+        if (matrix[pivot_h][pivot_w] == target) {
+            return true;
+        };
+        if (pivot_h-1 >= 0 && target == matrix[pivot_h-1][pivot_w]) {
+            return true;
+        };
+        if (pivot_h+1 < matrix.length && target == matrix[pivot_h+1][pivot_w]) {
+            return true;
+        };
+        if (pivot_w-1 >= 0 && target == matrix[pivot_h][pivot_w-1]) {
+            return true;
+        };
+        if (pivot_w+1 < matrix[0].length && target == matrix[pivot_h][pivot_w+1]) {
+            return true;
+        };
+        return false;
+    };
+    return search(matrix, target, matrix.length-1, matrix[0].length-1);
+};
 
 export {
     sortArray,
-    isValidBST
+    isValidBST,
+    searchMatrix
 };
