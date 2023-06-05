@@ -62,45 +62,64 @@ function isValidBST(root: TreeNode | null): boolean {
     return validate(root);
 };
 
-// Search 2D Matrix 2
-// Bad solution - took over 1 hr
-function searchMatrix(matrix: number[][], target: number): boolean {
-    function search(matrix: number[][], target: number, pivot_h: number, pivot_w: number): boolean {
-        var is_found: boolean = false;
-        if (pivot_h < 0 || pivot_w < 0 || pivot_h >= matrix.length || pivot_w >= matrix[0].length) {
-            is_found = false;
-        };
-        is_found = checkAround(matrix, target, pivot_h, pivot_w);
-        if (is_found == false) {
-            if (target < matrix[pivot_h][pivot_w]) {
-                // search top left
-                is_found = search(matrix, target, Math.ceil(pivot_h/2), Math.ceil(pivot_w/2));
-            } else if (target > matrix[pivot_h][pivot_w]) {
-                // search bottom right
-                is_found = search(matrix, target, matrix.length-Math.ceil(pivot_h/2), matrix[0].length-Math.ceil(pivot_w/2));
+// Search 2D Matrix 2 - Need to check with leet code if this solution is good
+// Brute solution took less than 5 min to solve
+// Time complexity = O(n**2)
+// Space complexity = O(1)
+function searchMatrixBrute(matrix: number[][], target: number): boolean {
+    for (var i: number = 0; i < matrix.length; i++) {
+        for (var j: number = 0; j < matrix[i].length; j++) {
+            if (matrix[i][j] == target) {
+                return true;
             };
         };
-        return is_found;
     };
-    function checkAround(matrix: number[][], target: number, pivot_h: number, pivot_w: number): boolean {
-        if (matrix[pivot_h][pivot_w] == target) {
+    return false;
+};
+
+// Time Complexity = O(n)
+// Space Complexity = O(n)
+function searchMatrix(matrix: number[][], target: number): boolean {
+    function search(matrix: number[][], target: number, pivh: number, pivw: number, going_lower: boolean=true, going_higher: boolean=true): boolean {
+        if (matrix[pivh][pivw] == target) {
             return true;
         };
-        if (pivot_h-1 >= 0 && target == matrix[pivot_h-1][pivot_w]) {
+        if (lookaround(matrix, target, pivh, pivw)) {
             return true;
         };
-        if (pivot_h+1 < matrix.length && target == matrix[pivot_h+1][pivot_w]) {
+        if (matrix[pivh][pivw] > target && going_lower) {
+            return search(matrix, target, pivh-1, pivw-1, true, false);
+        } else if (matrix[pivh][pivw] < target && going_higher) {
+            return search(matrix, target, pivh+1, pivw+1, false, true);
+        };
+        return false;
+    };
+    function lookaround(matrix: number[][], target: number, pivh: number, pivw: number): boolean {
+        // Looking at the other rows
+        if (matrix[pivh][pivw] > target && pivh-1 >= 0) {
+            if (matrix[pivh-1][pivw] == target) {
+                return true;
+            } else if (pivw+1 < matrix[pivh].length && matrix[pivh-1][pivw+1] == target) {
+                return true;
+            };
+        };
+        if (matrix[pivh][pivw] < target && pivh+1 < matrix.length) {
+            if (matrix[pivh+1][pivw] == target) {
+                return true;
+            } else if (pivw-1 >= 0 && matrix[pivh+1][pivw-1] == target) {
+                return true;
+            };
+        };
+        // Looking at the ones left and right
+        if (matrix[pivh][pivw] > target && pivw-1 >= 0 && matrix[pivh][pivw-1] == target) {
             return true;
         };
-        if (pivot_w-1 >= 0 && target == matrix[pivot_h][pivot_w-1]) {
-            return true;
-        };
-        if (pivot_w+1 < matrix[0].length && target == matrix[pivot_h][pivot_w+1]) {
+        if (matrix[pivh][pivw] < target && pivw+1 < matrix[pivh].length && matrix[pivh][pivw+1] == target) {
             return true;
         };
         return false;
     };
-    return search(matrix, target, matrix.length-1, matrix[0].length-1);
+    return search(matrix, target, Math.round((matrix.length-1)/2), Math.round((matrix[0].length-1)/2));
 };
 
 export {
