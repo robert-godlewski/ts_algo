@@ -69,6 +69,9 @@ function matrixSearchTests(): void {
     ];
     test(matrix, 5);
     test(matrix, 20);
+    test(matrix, 18);
+    test([[-5]], -2);
+    test([[5],[6]], 5);
 };
 
 

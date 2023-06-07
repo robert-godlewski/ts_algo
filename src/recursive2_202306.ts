@@ -77,45 +77,32 @@ function searchMatrixBrute(matrix: number[][], target: number): boolean {
     return false;
 };
 
-// Time Complexity = O(n)
+// Time Complexity = O(nlogn)
 // Space Complexity = O(n)
 function searchMatrix(matrix: number[][], target: number): boolean {
     function search(matrix: number[][], target: number, pivh: number, pivw: number, going_lower: boolean=true, going_higher: boolean=true): boolean {
         if (matrix[pivh][pivw] == target) {
             return true;
         };
-        if (lookaround(matrix, target, pivh, pivw)) {
+        if (searchRow(matrix, target, pivh)) {
             return true;
         };
-        if (matrix[pivh][pivw] > target && going_lower) {
+        if (matrix[pivh][pivw] > target && going_lower && pivh-1 >= 0 && pivw-1 >= 0) {
             return search(matrix, target, pivh-1, pivw-1, true, false);
-        } else if (matrix[pivh][pivw] < target && going_higher) {
+        } else if (matrix[pivh][pivw] < target && going_higher && pivh+1 < matrix.length && pivw+1 < matrix[pivh].length) {
             return search(matrix, target, pivh+1, pivw+1, false, true);
+        } else if (matrix[pivh][pivw] > target && going_lower && pivh-1 >= 0) {
+            return search(matrix, target, pivh-1, pivw, true, false);
+        } else if (matrix[pivh][pivw] < target && going_higher && pivh+1 < matrix.length) {
+            return search(matrix, target, pivh+1, pivw, false, true);
         };
         return false;
     };
-    function lookaround(matrix: number[][], target: number, pivh: number, pivw: number): boolean {
-        // Looking at the other rows
-        if (matrix[pivh][pivw] > target && pivh-1 >= 0) {
-            if (matrix[pivh-1][pivw] == target) {
-                return true;
-            } else if (pivw+1 < matrix[pivh].length && matrix[pivh-1][pivw+1] == target) {
+    function searchRow(matrix: number[][], target: number, row: number): boolean {
+        for (var i: number = 0; i < matrix[row].length; i++) {
+            if (matrix[row][i] == target) {
                 return true;
             };
-        };
-        if (matrix[pivh][pivw] < target && pivh+1 < matrix.length) {
-            if (matrix[pivh+1][pivw] == target) {
-                return true;
-            } else if (pivw-1 >= 0 && matrix[pivh+1][pivw-1] == target) {
-                return true;
-            };
-        };
-        // Looking at the ones left and right
-        if (matrix[pivh][pivw] > target && pivw-1 >= 0 && matrix[pivh][pivw-1] == target) {
-            return true;
-        };
-        if (matrix[pivh][pivw] < target && pivw+1 < matrix[pivh].length && matrix[pivh][pivw+1] == target) {
-            return true;
         };
         return false;
     };
